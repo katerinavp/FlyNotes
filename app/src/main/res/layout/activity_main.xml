@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:showAsAction="always"
+    tools:context=".NewNoteActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidHorizontalBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidHorizontalTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidHorizontalLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidHorizontalRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <EditText
+        android:id="@+id/editTxtTitle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/title"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/guidHorizontalTop"
+        app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
+        app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
+        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
+    />
+
+    <EditText
+        android:id="@+id/editTxtNote"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/note"
+        android:inputType="textMultiLine"
+        android:isScrollContainer="true"
+        app:layout_constraintBottom_toTopOf="@id/guidHorizontalBottom"
+        app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
+        app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
+        app:layout_constraintTop_toBottomOf="@+id/guidHorizontalTop" />
+
+    <CheckBox
+        android:id="@+id/chBxDeadline"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/chBx_deadline"
+        app:layout_constraintBottom_toTopOf="@+id/editTxtCalendar"
+        app:layout_constraintEnd_toStartOf="@+id/guidHorizontalRight"
+        app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
+        app:layout_constraintTop_toBottomOf="@id/guidHorizontalBottom" />
+
+    <EditText
+        android:id="@+id/editTxtCalendar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/deadline_day"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCalendar"
+        app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
+        app:layout_constraintTop_toBottomOf="@id/chBxDeadline" />
+
+    <ImageButton
+        android:id="@+id/btnCalendar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitCenter"
+        android:src="@drawable/calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
+        app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"
+        app:layout_constraintTop_toBottomOf="@id/chBxDeadline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
