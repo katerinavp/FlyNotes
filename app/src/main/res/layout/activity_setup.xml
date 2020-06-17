@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_setup"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <TextView
+        android:id="@+id/txtPin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Новый пин-код:"
+        app:layout_constraintBottom_toTopOf="@+id/editPin"
+        app:layout_constraintEnd_toEndOf="@+id/guidRight"
+        app:layout_constraintStart_toStartOf="@+id/guidLeft"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_setup" />
+
+    <FrameLayout
+        android:id="@+id/imageBtn"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="@+id/guidRight"
+        app:layout_constraintStart_toEndOf="@+id/editPin"
+        app:layout_constraintTop_toBottomOf="@+id/txtPin">
+
+
+        <ImageButton
+            android:id="@+id/imageBtnEyeOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/btnSave"
+            app:layout_constraintEnd_toEndOf="@+id/guidRight"
+            app:layout_constraintStart_toEndOf="@+id/editPin"
+            app:layout_constraintTop_toBottomOf="@+id/txtPin"
+            android:visibility="gone"
+            app:srcCompat="@drawable/eye_open" />
+
+        <ImageButton
+            android:id="@+id/imageBtnEyeBlind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/btnSave"
+            app:layout_constraintEnd_toEndOf="@+id/guidRight"
+            app:layout_constraintStart_toEndOf="@+id/editPin"
+            app:layout_constraintTop_toBottomOf="@+id/txtPin"
+            android:visibility="visible"
+            app:srcCompat="@drawable/eye_blind" />
+
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/editPin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberPassword"
+        android:hint="Новый пин-код:"
+        android:maxLength="4"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintEnd_toStartOf="@+id/imageBtn"
+        app:layout_constraintStart_toStartOf="@+id/guidLeft"
+        app:layout_constraintTop_toBottomOf="@+id/txtPin" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="@+id/guidRight"
+        app:layout_constraintStart_toStartOf="@+id/guidLeft"
+        app:layout_constraintTop_toBottomOf="@+id/editPin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

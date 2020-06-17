@@ -7,4 +7,7 @@
     <string name="deadline_day">Дедлайн</string>
     <string name="data_save_info">данные сохранены</string>
     <string name="nameNewMote">Новая заметка</string>
+    <string name="save">Сохранить</string>
+    <string name="Save_Password">Пароль сохранен</string>
+    <string name="edit_pin">Введите ПИН</string>
 </resources>

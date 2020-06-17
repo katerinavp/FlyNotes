@@ -7,15 +7,15 @@
     app:showAsAction="always"
     tools:context=".NewNoteActivity">
 
+
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/toolbar_new_notes"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidHorizontalBottom"
@@ -54,8 +54,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidHorizontalTop"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
-        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
-    />
+        app:layout_constraintTop_toBottomOf="@id/toolbar_new_notes" />
 
     <EditText
         android:id="@+id/editTxtNote"
@@ -84,7 +83,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="@string/deadline_day"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnCalendar"
         app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
