@@ -3,6 +3,7 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
-    <color name="colorCircle">#FFE602</color>
+    <color name="colorCircle">#9E9E9E</color>
     <color name="colorCircleFocus">#050505</color>
+    <color name="colorCircleChoose">#E6DB05</color>
 </resources>

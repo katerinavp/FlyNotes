@@ -14,7 +14,6 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
-
     <TextView
         android:id="@+id/txtPin"
         android:layout_width="0dp"

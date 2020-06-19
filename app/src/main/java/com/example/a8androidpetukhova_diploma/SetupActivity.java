@@ -2,21 +2,19 @@ package com.example.a8androidpetukhova_diploma;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+
 public class SetupActivity extends AppCompatActivity {
 
-    private static final String filePassword = "Password";
+    static final String filePassword = "Password"; //  //текст для хеширования
     private static EditText editPin;
 
     @Override
@@ -64,7 +62,24 @@ public class SetupActivity extends AppCompatActivity {
         findViewById(R.id.btnSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (editPin.getText().length() == 4) {
+//
+//                    MessageDigest md = null;
+//                    try {
+//                        md = MessageDigest.getInstance("MD5");
+//                    } catch (NoSuchAlgorithmException e) {
+//                        e.printStackTrace();
+//                    }
+//                    md.update(filePassword.getBytes());
+//
+//                    byte byteData[] = md.digest();
+//
+//                    //конвертируем байт в шестнадцатеричный формат первым способом
+//                    StringBuffer sb = new StringBuffer();
+//                    for (byte aByteData : byteData) {
+//                        sb.append(Integer.toString((aByteData & 0xff) + 0x100, 16).substring(1));
+//                    }
+//                    System.out.println("Текст в шестнадцатеричном виде : " + sb.toString());
 
                     try (
                             FileOutputStream fileOutputStreamLogin = openFileOutput(filePassword, MODE_PRIVATE)) {
@@ -83,9 +98,17 @@ public class SetupActivity extends AppCompatActivity {
                     }
 
                     Toast.makeText(SetupActivity.this, R.string.Save_Password, Toast.LENGTH_LONG).
-
                             show();
+
+                    Intent intentFromSetupToPin = new Intent(SetupActivity.this, PinActivity.class);
+                    startActivity(intentFromSetupToPin);
+
+                } else {
+                    {
+                        Toast.makeText(SetupActivity.this, R.string.Set_password, Toast.LENGTH_LONG).show();
+                    }
                 }
+            }
 
         });
     }

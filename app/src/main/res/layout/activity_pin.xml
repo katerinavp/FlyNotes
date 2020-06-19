@@ -30,24 +30,24 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/editPin"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="32dp"-->
-    <!--        android:gravity="center"-->
-    <!--        android:text="@string/edit_pin"-->
-    <!--        android:textSize="30sp"-->
-    <!--        app:layout_constraintBottom_toTopOf="imageBtnCircle1"-->
-    <!--        app:layout_constraintEnd_toEndOf="@+id/guidRight"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/guidLeft"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar_pin" />-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Введите пин:"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/guidTop"
+        app:layout_constraintEnd_toEndOf="@+id/guidRight"
+        app:layout_constraintStart_toStartOf="@+id/guidLeft"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_pin" />
 
     <View
         android:id="@+id/imageCircle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/circle"
+        app:layout_constraintBottom_toTopOf="@id/guidBottom"
         app:layout_constraintEnd_toStartOf="@+id/imageCircle2"
         app:layout_constraintStart_toStartOf="@+id/guidLeft"
         app:layout_constraintTop_toBottomOf="@+id/guidTop"
@@ -55,153 +55,162 @@
 
     <View
         android:id="@+id/imageCircle2"
-        android:centerX="0.5"
-        android:centerY="0.5"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/circle"
         app:layout_constraintEnd_toStartOf="@+id/imageCircle3"
-        app:layout_constraintStart_toStartOf="@+id/guidLeft"
-        app:layout_constraintTop_toBottomOf="@+id/guidTop" />
+        app:layout_constraintStart_toEndOf="@+id/imageCircle1"
+        app:layout_constraintTop_toBottomOf="@+id/guidTop"
+        app:layout_constraintBottom_toTopOf="@id/guidBottom" />
 
 
-<!--    <View-->
-<!--        android:id="@+id/imageCircle3"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:background="@drawable/circle"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/imageCircle4"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/imageCircle2"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/guidTop"-->
-<!--        app:srcCompat="@drawable/circle" />-->
+    <View
+        android:id="@+id/imageCircle3"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toStartOf="@+id/imageCircle4"
+        app:layout_constraintStart_toEndOf="@+id/imageCircle2"
+        app:layout_constraintTop_toBottomOf="@+id/guidTop"
+        app:layout_constraintBottom_toTopOf="@id/guidBottom"
+        app:srcCompat="@drawable/circle" />
 
-<!--    <View-->
-<!--        android:id="@+id/imageCircle4"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:background="@drawable/circle"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/guidRight"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/imageCircle3"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/guidTop"-->
-<!--        app:srcCompat="@drawable/circle" />-->
+    <View
+        android:id="@+id/imageCircle4"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/circle"
+        app:layout_constraintEnd_toEndOf="@+id/guidRight"
+        app:layout_constraintStart_toEndOf="@+id/imageCircle3"
+        app:layout_constraintTop_toBottomOf="@+id/guidTop"
+        app:layout_constraintBottom_toTopOf="@id/guidBottom"
+        app:srcCompat="@drawable/circle" />
 
-    <!--    <LinearLayout-->
-    <!--        android:id="@+id/btnNumber"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:orientation="vertical"-->
-    <!--        app:layout_constraintEnd_toEndOf="@+id/guidRight"-->
-    <!--        app:layout_constraintStart_toStartOf="@+id/guidLeft"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/imageBtnCircle2">-->
+        <LinearLayout
+            android:id="@+id/btnNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/guidRight"
+            app:layout_constraintStart_toStartOf="@+id/guidLeft"
+            app:layout_constraintTop_toBottomOf="@id/guidBottom">
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-    <!--            android:orientation="horizontal">-->
+                android:orientation="horizontal">
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn7"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="7" />-->
-
-
-    <!--            <Button-->
-    <!--                android:id="@+id/btn8"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="match_parent"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="8" />-->
-
-    <!--            <Button-->
-    <!--                android:id="@+id/btn9"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="9" />-->
-    <!--        </LinearLayout>-->
+                <Button
+                    android:id="@+id/btn1"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="1" />
 
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:maxHeight="100dp"-->
-    <!--            android:orientation="horizontal">-->
+                <Button
+                    android:id="@+id/btn2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="2" />
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn4"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="4" />-->
+                <Button
+                    android:id="@+id/btn3"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="3" />
+            </LinearLayout>
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn5"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
 
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="5" />-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="100dp"
+                android:orientation="horizontal">
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn6"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="6" />-->
-    <!--        </LinearLayout>-->
+                <Button
+                    android:id="@+id/btn4"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="4" />
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:maxHeight="100dp"-->
-    <!--            android:orientation="horizontal">-->
+                <Button
+                    android:id="@+id/btn5"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn1"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="1" />-->
+                    android:layout_weight="1"
+                    android:text="5" />
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn2"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
+                <Button
+                    android:id="@+id/btn6"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="6" />
+            </LinearLayout>
 
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="2" />-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="100dp"
+                android:orientation="horizontal">
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn3"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="3" />-->
-    <!--        </LinearLayout>-->
+                <Button
+                    android:id="@+id/btn7"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="7" />
 
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:maxHeight="100dp"-->
-    <!--            android:orientation="horizontal">-->
+                <Button
+                    android:id="@+id/btn8"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btn0"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="2"-->
-    <!--                android:text="0" />-->
+                    android:layout_weight="1"
+                    android:text="8" />
 
-    <!--            <Button-->
-    <!--                android:id="@+id/btnPoint"-->
-    <!--                android:layout_width="0dp"-->
-    <!--                android:layout_height="100dp"-->
-    <!--                android:layout_weight="1"-->
-    <!--                android:text="." />-->
+                <Button
+                    android:id="@+id/btn9"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="9" />
+            </LinearLayout>
 
-    <!--        </LinearLayout>-->
-    <!--    </LinearLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxHeight="100dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btnInvisible"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:visibility="invisible"
+                    android:text="0" />
+                <Button
+                    android:id="@+id/btn0"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    android:text="0" />
+
+                <ImageButton
+                    android:id="@+id/imageBtnBack"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="?attr/homeAsUpIndicator" />
+
+            </LinearLayout>
+        </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidTop"
@@ -209,6 +218,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
 
 
 

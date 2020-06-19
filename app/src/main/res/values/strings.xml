@@ -10,4 +10,7 @@
     <string name="save">Сохранить</string>
     <string name="Save_Password">Пароль сохранен</string>
     <string name="edit_pin">Введите ПИН</string>
+    <string name="Set_password">Установите пароль из 4-х чисел</string>
+    <string name="password_is_correct">Пароль введен корректно</string>
+    <string name="password_is_incorrect">Введен неправильный пароль</string>
 </resources>
