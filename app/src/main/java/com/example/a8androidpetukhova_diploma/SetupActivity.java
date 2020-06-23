@@ -2,12 +2,19 @@ package com.example.a8androidpetukhova_diploma;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -16,6 +23,8 @@ public class SetupActivity extends AppCompatActivity {
 
     static final String filePassword = "Password"; //  //текст для хеширования
     private static EditText editPin;
+    ImageButton imageBtnEyeBlind;
+    ImageButton imageBtnEyeOpen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +45,8 @@ public class SetupActivity extends AppCompatActivity {
 
     public void init() {
         editPin = findViewById(R.id.editPin);
+        imageBtnEyeBlind = findViewById(R.id.imageBtnEyeBlind);
+        imageBtnEyeOpen = findViewById(R.id.imageBtnEyeOpen);
 
     }
 
@@ -63,7 +74,7 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (editPin.getText().length() == 4) {
-//
+
 //                    MessageDigest md = null;
 //                    try {
 //                        md = MessageDigest.getInstance("MD5");
@@ -100,8 +111,10 @@ public class SetupActivity extends AppCompatActivity {
                     Toast.makeText(SetupActivity.this, R.string.Save_Password, Toast.LENGTH_LONG).
                             show();
 
-                    Intent intentFromSetupToPin = new Intent(SetupActivity.this, PinActivity.class);
-                    startActivity(intentFromSetupToPin);
+                    Intent intentSetupToPin = new Intent();
+                    intentSetupToPin.putExtra("fileP", (editPin.getText().toString()));//указываем путь к файлу
+                    setResult(RESULT_OK, intentSetupToPin);
+                    finish();
 
                 } else {
                     {
@@ -111,7 +124,31 @@ public class SetupActivity extends AppCompatActivity {
             }
 
         });
+
+        imageBtnEyeBlind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editPin.setInputType(InputType.TYPE_CLASS_NUMBER);
+                editPin.setTransformationMethod(null);
+                imageBtnEyeBlind.setVisibility(View.GONE);
+                imageBtnEyeOpen.setVisibility(View.VISIBLE);
+
+
+            }
+        });
+
+
+        imageBtnEyeOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                imageBtnEyeBlind.setVisibility(View.VISIBLE);
+                imageBtnEyeOpen.setVisibility(View.GONE);
+
+            }
+
+        });
+
+
     }
-
-
 }

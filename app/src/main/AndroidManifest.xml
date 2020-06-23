@@ -17,10 +17,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".NewNoteActivity"/>
-        <activity android:name=".NotesActivity"/>
-        <activity android:name=".SetupActivity"/>
-
+        <activity android:name=".NewNoteActivity" />
+        <activity android:name=".NotesActivity" />
+        <activity android:name=".SetupActivity" />
+        <!--        <activity android:name=".PinActivity"/>-->
     </application>
 
 </manifest>

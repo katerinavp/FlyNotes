@@ -15,18 +15,28 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class NewNoteActivity extends AppCompatActivity {
 
-    private EditText editTxtTitle;
-    private EditText editTxtNote;
+    EditText editTxtTitle;
+    EditText editTxtNote;
+
     private CheckBox chBxDeadline;
     private EditText editTxtCalendar;
     private String editTxtCalendarString = "";
+    private String editTxtTitleString = "";
+    private String editTxtNoteString = "";
+
+//    List<String> titles = new ArrayList<>();
+//    List<String> notes = new ArrayList<>();
+//    List<String> deadline = new ArrayList<>();
 
 
     @Override
@@ -57,15 +67,36 @@ public class NewNoteActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) { // обработка кнопки menuSave
         switch (item.getItemId()) {
             case R.id.menuSave:
-                saveNote();
-                return true;
 
-            case android.R.id.home:
-                Intent intent = new Intent(NewNoteActivity.this, NotesActivity.class);
-                startActivity(intent);
+            if(editTxtTitleString!= null & editTxtNoteString != null & editTxtCalendarString != null) {
+                System.out.println("ДАННЫЕ ЗАПОЛНЕНЫ!!!");
+                saveNote();
+//                editTxtTitleString = editTxtTitle.getText().toString();
+//                editTxtNoteString = editTxtNote.getText().toString();
+//                NotesActivity.generateItemData(editTxtTitleString, editTxtNoteString, editTxtCalendarString);
+
+
+
+//                titles.add(editTxtTitle.toString());
+//                notes.add(editTxtNote.toString());
+//                deadline.add(editTxtCalendar.toString());
+//                System.out.println("Данные сформированы " + titles + " " + notes + " " + deadline);
+//                NotesActivity.generateItemData(titles, notes, deadline);
+//                Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
+//                startActivity(intentFromNewNotesToNotes);
+
                 return true;
+            }else{
+                Toast.makeText(NewNoteActivity.this,"Заполните заметку", Toast.LENGTH_LONG).show();
+            }
+            case android.R.id.home:
+                Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
+                startActivity(intentFromNewNotesToNotes);
+
+               return true;
             default:
                 return super.onOptionsItemSelected(item);
+
         }
     }
 
@@ -137,24 +168,50 @@ public class NewNoteActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
-
-        String NOTE_TEXT = "note_text";
-        //if ((editTxtTitle.getText().length() = 0) && (editTxtNote.getText().length() = 0)) {
-        SharedPreferences myNoteSharedPref = getSharedPreferences("MyNote", MODE_PRIVATE);
-        SharedPreferences.Editor myEditor = myNoteSharedPref.edit();
-        String titleTxt = editTxtTitle.getText().toString();
-        String noteTxt = editTxtNote.getText().toString();
-        myEditor.putString(NOTE_TEXT, titleTxt);
-        myEditor.putString(NOTE_TEXT, "; ");
-        myEditor.putString(NOTE_TEXT, noteTxt);
-        myEditor.putString(NOTE_TEXT, editTxtCalendarString);
-        myEditor.apply();
-        Toast.makeText(NewNoteActivity.this, R.string.data_save_info, Toast.LENGTH_LONG).show();
+        Intent intentNewNotesToNotes = new Intent();
+        intentNewNotesToNotes.putExtra("title", editTxtTitle.getText().toString());
+        intentNewNotesToNotes.putExtra("note", editTxtNote.getText().toString()); //указываем путь к файлу
+        intentNewNotesToNotes.putExtra("deadline",  editTxtCalendarString);
+        setResult(RESULT_OK, intentNewNotesToNotes);
+        finish();
 
     }
 
+//        String NOTE_TEXT = "note_text";
+//        //if ((editTxtTitle.getText().length() = 0) && (editTxtNote.getText().length() = 0)) {
+//        SharedPreferences myNoteSharedPref = getSharedPreferences("MyNote", MODE_PRIVATE);
+//        SharedPreferences.Editor myEditor = myNoteSharedPref.edit();
+//        String titleTxt = editTxtTitle.getText().toString();
+//        String noteTxt = editTxtNote.getText().toString();
+//        myEditor.putString(NOTE_TEXT, titleTxt);
+//        myEditor.putString(NOTE_TEXT, "; ");
+//        myEditor.putString(NOTE_TEXT, noteTxt);
+//        myEditor.putString(NOTE_TEXT, editTxtCalendarString);
+//        myEditor.apply();
+//        Toast.makeText(NewNoteActivity.this, R.string.data_save_info, Toast.LENGTH_LONG).show();
 
+//        titles.add(editTxtTitle.toString());
+//        notes.add(editTxtNote.toString());
+//        deadline.add(editTxtCalendar.toString());
+//        System.out.println("Данные сформированы " + titles + " " + notes + " " + deadline);
+//        NotesActivity.generateItemData(titles, notes, deadline);
+//        Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
+//       startActivity(intentFromNewNotesToNotes);
+//
+//    }
+
+//    private void generateItemData() {
+//
+//        //int index = random.nextInt(images.size());
+//        adapter.addItem(new ItemData(titles.get(randomIndex), notes.get(randomIndex),
+//                deadline.get(randomIndex)));
+//
+//
+//    }
 }
+
+
+
 
 
 
