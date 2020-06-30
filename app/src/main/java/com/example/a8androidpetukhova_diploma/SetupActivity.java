@@ -111,10 +111,10 @@ public class SetupActivity extends AppCompatActivity {
                     Toast.makeText(SetupActivity.this, R.string.Save_Password, Toast.LENGTH_LONG).
                             show();
 
-                    Intent intentSetupToPin = new Intent();
-                    intentSetupToPin.putExtra("fileP", (editPin.getText().toString()));//указываем путь к файлу
-                    setResult(RESULT_OK, intentSetupToPin);
-                    finish();
+//                    Intent intentSetupToPin = new Intent();
+//                    intentSetupToPin.putExtra("fileP", (editPin.getText().toString()));//указываем путь к файлу
+//                    setResult(RESULT_OK, intentSetupToPin);
+//                    finish();
 
                 } else {
                     {

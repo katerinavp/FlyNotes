@@ -7,18 +7,19 @@
     app:showAsAction="always"
     tools:context=".NotesActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_notes"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHeight_percent="0.1"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+  <androidx.appcompat.widget.Toolbar
+      android:id="@+id/toolbar_notes"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:background="?attr/colorPrimary"
+      android:elevation="4dp"
+      android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintHeight_percent="0.1"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_new_notes"
@@ -31,5 +32,6 @@
         app:srcCompat="@drawable/ic_plus" />
 
     <include layout="@layout/content_notes" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

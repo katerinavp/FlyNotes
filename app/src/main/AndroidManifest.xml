@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PinActivity">
+        <activity android:name=".NotesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,9 +18,9 @@
         </activity>
 
         <activity android:name=".NewNoteActivity" />
-        <activity android:name=".NotesActivity" />
+<!--        <activity android:name=".NotesActivity" />-->
         <activity android:name=".SetupActivity" />
-        <!--        <activity android:name=".PinActivity"/>-->
+                <activity android:name=".PinActivity"/>
     </application>
 
 </manifest>

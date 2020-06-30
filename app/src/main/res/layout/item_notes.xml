@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:descendantFocusability="blocksDescendants"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/txtNotes"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_notes"
+        android:popupBackground="?customBackground">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+   >
 
             <TextView
                 android:id="@+id/infoTxtTitle"
@@ -26,8 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ellipsize="end"
+                android:text="Заголовок"
                 android:gravity="start|top"
-                android:text="Карточка на кота Василия"
                 android:textSize="24sp" />
 
 
@@ -53,4 +55,4 @@
     </androidx.cardview.widget.CardView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
