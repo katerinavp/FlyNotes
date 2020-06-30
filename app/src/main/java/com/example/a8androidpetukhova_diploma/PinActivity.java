@@ -9,14 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-
-import static com.example.a8androidpetukhova_diploma.SetupActivity.filePassword;
-
 
 public class PinActivity extends AppCompatActivity {
 
