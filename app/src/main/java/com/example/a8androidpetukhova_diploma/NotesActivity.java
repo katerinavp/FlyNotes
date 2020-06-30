@@ -45,7 +45,9 @@ public class NotesActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Заметки");
 
-            if (savedInstanceState != null) {
+            if (!titles.isEmpty()|| !notes.isEmpty() || !deadlines.isEmpty()) {
+                //Log.d(LOG_TAG, "savedInstanceState != null ");
+
                 System.out.println(titles.toString());
                 System.out.println(notes.toString());
                 System.out.println(deadlines.toString());
@@ -63,12 +65,11 @@ public class NotesActivity extends AppCompatActivity {
 
 
             } else {
+               // Log.d(LOG_TAG, "savedInstanceState = null ");
                 initNotes();
                 setOnClickAddNewNotes();
                 deleteNote();
             }
-//
-
         }
     }
 
@@ -85,8 +86,10 @@ public class NotesActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 adapter.removeItem(position);
+                adapter.notifyDataSetChanged();
                 return true;
             }
+
         });
     }
 
@@ -173,7 +176,6 @@ public class NotesActivity extends AppCompatActivity {
         titles.add(title);
         notes.add(note);
         deadlines.add(deadline);
-        System.out.println("Данные сформированы " + titles + " " + notes + " " + deadlines);
         int index = (titles.size() - 1);
         // int index = 0;
         adapter.addItem(new ItemData(titles.get(index), notes.get(index),
