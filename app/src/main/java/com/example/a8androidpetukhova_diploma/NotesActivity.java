@@ -10,7 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -93,31 +92,31 @@ public class NotesActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+////        super.onSaveInstanceState(outState);
+//
+//        outState.putStringArrayList("titles", (ArrayList<String>) titles);
+//        outState.putStringArrayList("notes", (ArrayList<String>) notes);
+//        outState.putStringArrayList("deadlines", (ArrayList<String>) deadlines);
+//        Log.d(LOG_TAG, "onSaveInstanceState ");
 //        super.onSaveInstanceState(outState);
-
-        outState.putStringArrayList("titles", (ArrayList<String>) titles);
-        outState.putStringArrayList("notes", (ArrayList<String>) notes);
-        outState.putStringArrayList("deadlines", (ArrayList<String>) deadlines);
-        Log.d(LOG_TAG, "onSaveInstanceState ");
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Log.d(LOG_TAG, "onRestoreInstanceState ");
-        titles = savedInstanceState.getStringArrayList("titles");
-        notes = savedInstanceState.getStringArrayList("notes");
-        deadlines = savedInstanceState.getStringArrayList("deadlines");
-        for (int i = 0; i <= titles.size() - 1; i++) {
-            adapter.addItem(new ItemData(titles.get(i), notes.get(i),
-                    deadlines.get(i)));
-            adapter.notifyDataSetChanged();
-            Log.d(LOG_TAG, "onRestoreInstanceState ");
-        }
-    }
+//    }
+//
+//    @Override
+//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//        Log.d(LOG_TAG, "onRestoreInstanceState ");
+//        titles = savedInstanceState.getStringArrayList("titles");
+//        notes = savedInstanceState.getStringArrayList("notes");
+//        deadlines = savedInstanceState.getStringArrayList("deadlines");
+//        for (int i = 0; i <= titles.size() - 1; i++) {
+//            adapter.addItem(new ItemData(titles.get(i), notes.get(i),
+//                    deadlines.get(i)));
+//            adapter.notifyDataSetChanged();
+//            Log.d(LOG_TAG, "onRestoreInstanceState ");
+//        }
+//    }
 
 
     @Override
