@@ -103,52 +103,6 @@ public class SetupActivity extends AppCompatActivity {
                     Intent intentSetupToNotes = new Intent(SetupActivity.this, NotesActivity.class);
                     startActivity(intentSetupToNotes);
 
-//                    Intent intentSetupToPin = new Intent();
-//                    intentSetupToPin.putExtra("filePassword", passwordTxt);//указываем путь к файлу
-//                    setResult(RESULT_OK, intentSetupToPin);
-//                    finish();
-
-//                    MessageDigest md = null;
-//                    try {
-//                        md = MessageDigest.getInstance("MD5");
-//                    } catch (NoSuchAlgorithmException e) {
-//                        e.printStackTrace();
-//                    }
-//                    md.update(filePassword.getBytes());
-//
-//                    byte byteData[] = md.digest();
-//
-//                    //конвертируем байт в шестнадцатеричный формат первым способом
-//                    StringBuffer sb = new StringBuffer();
-//                    for (byte aByteData : byteData) {
-//                        sb.append(Integer.toString((aByteData & 0xff) + 0x100, 16).substring(1));
-//                    }
-//                    System.out.println("Текст в шестнадцатеричном виде : " + sb.toString());
-
-//                    try (
-//                            FileOutputStream fileOutputStreamLogin = openFileOutput(filePassword, MODE_PRIVATE)) {
-//                        fileOutputStreamLogin.write(editPin.getText().toString().getBytes());
-//                    } catch (
-//                            IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                    try (
-//                            FileOutputStream fileOutputStreamPassword = openFileOutput(filePassword, MODE_PRIVATE)) {
-//                        fileOutputStreamPassword.write(editPin.getText().toString().getBytes());
-//
-//                    } catch (
-//                            IOException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                    Toast.makeText(SetupActivity.this, R.string.Save_Password, Toast.LENGTH_LONG).
-//                            show();
-
-//                    Intent intentSetupToPin = new Intent();
-//                    intentSetupToPin.putExtra("fileP", (editPin.getText().toString()));//указываем путь к файлу
-//                    setResult(RESULT_OK, intentSetupToPin);
-//                    finish();
-
 
                 } else {
                     {
