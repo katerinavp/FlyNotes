@@ -40,7 +40,7 @@ public class SetupActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
         init();
-        savePassword();
+        btnClick();
     }
 
 
@@ -66,7 +66,7 @@ public class SetupActivity extends AppCompatActivity {
 
                 } else {
                     super.onBackPressed();
-                   finish();
+                    finish();
                 }
             default:
         }
@@ -85,18 +85,18 @@ public class SetupActivity extends AppCompatActivity {
         back_pressed = System.currentTimeMillis();
     }
 
-    public void savePassword() {
+    public void btnClick() {
 
         findViewById(R.id.btnSave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (editPin.getText().length() == 4) {
-                    myPasswordSharedPref = getSharedPreferences(PASSWORD_TEXT, Context.MODE_PRIVATE);
+                    myPasswordSharedPref = getSharedPreferences(PASSWORD_TEXT, Context.MODE_PRIVATE); // перенесла код в PinActivity
                     SharedPreferences.Editor myEditor = myPasswordSharedPref.edit();
-
                     String passwordTxt = editPin.getText().toString();
                     myEditor.putString(PASSWORD_TEXT, passwordTxt);
                     myEditor.apply();
+
                     Toast.makeText(SetupActivity.this, "данные сохранены", Toast.LENGTH_LONG).show();
 //                    Intent intentSetupToPin = new Intent(SetupActivity.this, PinActivity.class);
 //                    startActivity(intentSetupToPin);
@@ -185,4 +185,6 @@ public class SetupActivity extends AppCompatActivity {
 
 
     }
+
 }
+

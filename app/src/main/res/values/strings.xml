@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">8.AndroidPetukhova_Diploma</string>
+    <string name="app_name">Заметки</string>
     <string name="title">Заголовок</string>
     <string name="note">Тело заметки</string>
     <string name="deadline_message">Для выбора даты дедлайна установите флажок "Есть дедлайн"</string>
