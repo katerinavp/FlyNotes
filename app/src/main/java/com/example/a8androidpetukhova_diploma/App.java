@@ -1,33 +1,22 @@
 package com.example.a8androidpetukhova_diploma;
-
 import android.app.Application;
+import android.content.Context;
 
 public class App extends Application {
 
-//    private static NoteRepository noteRepository;
     private static Keystore keystore;
+    private static NoteRepository noteRepository;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-        /* Конкретная реализация выбирается только здесь.
-           Изменением одной строчки здесь,
-           мы заменяем реализацию во всем приложении!
-        */
-
+        keystore = new SimpleKeystore(getSharedPreferences("password_text", Context.MODE_PRIVATE));
 //        noteRepository = new FileNoteRepository(this);
-       // passwordStorage = new SimpleKeystore(this);
 
     }
 
-//    // Возвращаем интерфейс, а не конкретную реализацию!
-//    public static NoteRepository getNoteRepository() {
-//        return noteRepository;
-//    }
-
-    // Возвращаем интерфейс, а не конкретную реализацию!
     public static Keystore getKeystore() {
         return keystore;
     }
+
 }

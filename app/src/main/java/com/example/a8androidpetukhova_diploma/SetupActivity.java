@@ -1,6 +1,5 @@
 package com.example.a8androidpetukhova_diploma;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +16,8 @@ import androidx.appcompat.widget.Toolbar;
 
 
 public class SetupActivity extends AppCompatActivity {
+
+    private Keystore keystore = App.getKeystore();
 
     private static long back_pressed;
     static final String filePassword = "Password"; //  //текст для хеширования
@@ -59,7 +60,7 @@ public class SetupActivity extends AppCompatActivity {
 //                return true;
 
             case android.R.id.home:
-                if (PASSWORD_TEXT != null) {
+                if (keystore.hasPin()) {
                     Intent intentSetupToNotes = new Intent(SetupActivity.this, NotesActivity.class);
                     startActivity(intentSetupToNotes);
                     return true;
@@ -91,19 +92,10 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (editPin.getText().length() == 4) {
-                    myPasswordSharedPref = getSharedPreferences(PASSWORD_TEXT, Context.MODE_PRIVATE); // перенесла код в PinActivity
-                    SharedPreferences.Editor myEditor = myPasswordSharedPref.edit();
-                    String passwordTxt = editPin.getText().toString();
-                    myEditor.putString(PASSWORD_TEXT, passwordTxt);
-                    myEditor.apply();
-
+                    keystore.saveNew(editPin.getText().toString());
                     Toast.makeText(SetupActivity.this, "данные сохранены", Toast.LENGTH_LONG).show();
-//                    Intent intentSetupToPin = new Intent(SetupActivity.this, PinActivity.class);
-//                    startActivity(intentSetupToPin);
                     Intent intentSetupToNotes = new Intent(SetupActivity.this, NotesActivity.class);
                     startActivity(intentSetupToNotes);
-
-
                 } else {
                     {
                         Toast.makeText(SetupActivity.this, R.string.Set_password, Toast.LENGTH_LONG).show();
