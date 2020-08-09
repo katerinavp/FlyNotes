@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma;
+package Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,25 +13,32 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.a8androidpetukhova_diploma.App;
+import com.example.a8androidpetukhova_diploma.ItemData;
+import com.example.a8androidpetukhova_diploma.NoteRepository;
+import com.example.a8androidpetukhova_diploma.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import Adapter.ItemsDataAdapter;
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class NotesActivity extends AppCompatActivity {
 
+    private NoteRepository noteRepository = App.getNoteRepository();
     private TextView textView = null;
     private StringBuilder text = new StringBuilder();
 
+
     private static ItemsDataAdapter adapter;
+
     ListView list;
     static List<String> titles = new ArrayList<>();
     static List<String> notes = new ArrayList<>();
     static List<String> deadlines = new ArrayList<>();
     final String LOG_TAG = "myLogs";
-    private static String NOTE_TEXT = "note_text";
-    private static String NOTE_TITLE = "note_title";
-    private static String NOTE_NOTES = "note_note";
-    private static String NOTE_DEAD = "note_deadline";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,8 +68,6 @@ public class NotesActivity extends AppCompatActivity {
                 initNotes();
                 setOnClickAddNewNotes();
                 deleteNote();
-
-
             } else {
                // Log.d(LOG_TAG, "savedInstanceState = null ");
                 initNotes();
@@ -71,7 +76,6 @@ public class NotesActivity extends AppCompatActivity {
             }
         }
     }
-
 
     public void initNotes() {
         list = findViewById(R.id.list);
@@ -88,36 +92,8 @@ public class NotesActivity extends AppCompatActivity {
                 adapter.notifyDataSetChanged();
                 return true;
             }
-
         });
     }
-
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-////        super.onSaveInstanceState(outState);
-//
-//        outState.putStringArrayList("titles", (ArrayList<String>) titles);
-//        outState.putStringArrayList("notes", (ArrayList<String>) notes);
-//        outState.putStringArrayList("deadlines", (ArrayList<String>) deadlines);
-//        Log.d(LOG_TAG, "onSaveInstanceState ");
-//        super.onSaveInstanceState(outState);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        Log.d(LOG_TAG, "onRestoreInstanceState ");
-//        titles = savedInstanceState.getStringArrayList("titles");
-//        notes = savedInstanceState.getStringArrayList("notes");
-//        deadlines = savedInstanceState.getStringArrayList("deadlines");
-//        for (int i = 0; i <= titles.size() - 1; i++) {
-//            adapter.addItem(new ItemData(titles.get(i), notes.get(i),
-//                    deadlines.get(i)));
-//            adapter.notifyDataSetChanged();
-//            Log.d(LOG_TAG, "onRestoreInstanceState ");
-//        }
-//    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //загрузка меню
@@ -140,7 +116,6 @@ public class NotesActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     private void setOnClickAddNewNotes() {
@@ -152,14 +127,13 @@ public class NotesActivity extends AppCompatActivity {
 
                 startActivityForResult(intentFromNotesToNewNotes, 20);
             }
-
         });
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (data == null) {
             return;
         }
@@ -179,63 +153,6 @@ public class NotesActivity extends AppCompatActivity {
         // int index = 0;
         adapter.addItem(new ItemData(titles.get(index), notes.get(index),
                 deadlines.get(index)));
-
-
-    }
-
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(LOG_TAG, "onStart ");
-
-
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(LOG_TAG, "onResume ");
-
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(LOG_TAG, "onPause");
-
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(LOG_TAG, "onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(LOG_TAG, "onDestroy()");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(LOG_TAG, "onRestart()");
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        Log.d(LOG_TAG, "onPostCreate");
-    }
-
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        Log.d(LOG_TAG, "onPostResume()");
     }
 
 }

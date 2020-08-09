@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma;
+package Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.a8androidpetukhova_diploma.ItemData;
+import com.example.a8androidpetukhova_diploma.R;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class ItemsDataAdapter extends BaseAdapter {
 
@@ -20,7 +26,8 @@ public class ItemsDataAdapter extends BaseAdapter {
 
      // Конструктор, в который передается контекст
     // для создания контролов из XML. И первоначальный список элементов.
-    ItemsDataAdapter(Context context, List<ItemData> items) {
+     @Inject
+     public ItemsDataAdapter(Context context, List<ItemData> items) {
         if (items == null) {
             this.items = new ArrayList<>(); //если данные пустые , то создаем новый список
         } else {
@@ -33,13 +40,13 @@ public class ItemsDataAdapter extends BaseAdapter {
     // notifyDataSetChanged сообщает об обновлении данных и переотрисовывает.
     // Вы можете как угодно менять items в других местах.
     // Но не забывайте вызывать notifyDataSetChanged чтобы все обновилось.
-    void addItem(ItemData item) {
+    public void addItem(ItemData item) {
         this.items.add(item); // добавляем новый датакласс
         notifyDataSetChanged();
     }
 
     // Удаляет элемент списка.
-    void removeItem(int position) {
+    public void removeItem(int position) {
         items.remove(position);
         notifyDataSetChanged();
     }

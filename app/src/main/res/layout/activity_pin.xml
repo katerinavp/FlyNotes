@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:showAsAction="always"
-    tools:context=".PinActivity">
+    tools:context="Activity.PinActivity"
+    android:background="@color/colorBack">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_pin"
@@ -150,30 +151,32 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn1"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="1" />
+                android:text="1"
+                android:background="@color/colorBtnNumber"/>
 
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="2"
+                android:background="@color/colorBtnNumber"/>
 
             <Button
                 android:id="@+id/btn3"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="3"
+                android:background="@color/colorBtnNumber"/>
         </LinearLayout>
 
 
@@ -186,24 +189,27 @@
             <Button
                 android:id="@+id/btn4"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="4" />
+                android:text="4"
+                android:background="@color/colorBtnNumber"/>
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
-
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="5" />
+                android:text="5"
+                android:background="@color/colorBtnNumber"/>
 
             <Button
                 android:id="@+id/btn6"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="6" />
+                android:text="6"
+                android:background="@color/colorBtnNumber"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -215,24 +221,27 @@
             <Button
                 android:id="@+id/btn7"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="7" />
+                android:text="7"
+                android:background="@color/colorBtnNumber"/>
 
             <Button
                 android:id="@+id/btn8"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
 
                 android:layout_weight="1"
-                android:text="8" />
+                android:text="8"
+                android:background="@color/colorBtnNumber"/>
 
             <Button
                 android:id="@+id/btn9"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="9" />
+                android:text="9"
+                android:background="@color/colorBtnNumber"/>
         </LinearLayout>
 
         <LinearLayout
@@ -244,7 +253,7 @@
             <Button
                 android:id="@+id/btnInvisible"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
                 android:text="0"
                 android:visibility="invisible" />
@@ -252,16 +261,18 @@
             <Button
                 android:id="@+id/btn0"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                android:text="0" />
+                android:text="0"
+                android:background="@color/colorBtnNumber"/>
 
             <ImageButton
                 android:id="@+id/imageBtnDelete"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="?attr/homeAsUpIndicator" />
+                app:srcCompat="?attr/homeAsUpIndicator"
+                android:background="@color/colorBtnNumber"/>
 
         </LinearLayout>
     </LinearLayout>

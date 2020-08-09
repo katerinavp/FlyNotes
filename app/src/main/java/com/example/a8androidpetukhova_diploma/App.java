@@ -2,6 +2,13 @@ package com.example.a8androidpetukhova_diploma;
 import android.app.Application;
 import android.content.Context;
 
+import java.util.ArrayList;
+
+import dagger.hilt.android.HiltAndroidApp;
+
+@HiltAndroidApp //Этот сгенерированный компонент Hilt присоединяется к Applicationжизненному циклу объекта и обеспечивает для него зависимости.
+// Кроме того, это родительский компонент приложения, что означает, что другие компоненты могут получить доступ к зависимостям, которые оно предоставляет.
+
 public class App extends Application {
 
     private static Keystore keystore;
@@ -11,12 +18,16 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         keystore = new SimpleKeystore(getSharedPreferences("password_text", Context.MODE_PRIVATE));
-//        noteRepository = new FileNoteRepository(this);
+        noteRepository = new FileNoteRepository(new ArrayList<ItemData>());
 
     }
 
     public static Keystore getKeystore() {
         return keystore;
+    }
+
+    public static NoteRepository getNoteRepository() {
+        return noteRepository;
     }
 
 }

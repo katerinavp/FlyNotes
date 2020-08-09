@@ -1,9 +1,34 @@
 package com.example.a8androidpetukhova_diploma;
 
-public class FileNoteRepository {
+import java.util.List;
+
+public class FileNoteRepository implements NoteRepository {
+    private List<ItemData> items;
+
+    public FileNoteRepository(List<ItemData> items) {
+        this.items = items;
+    }
+
+    @Override
+    public String getNoteById(String id) {
+        return id;
+    }
+
+    @Override
+    public List<ItemData> getNotes() {
 
 
-//    public FileNoteRepository() {
-//
-//    }
+        return items;
+    }
+
+
+    @Override
+    public void saveNote(ItemData item) {
+
+    }
+
+    @Override
+    public void deleteById(String id) {
+
+    }
 }

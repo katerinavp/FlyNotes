@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma;
+package Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.a8androidpetukhova_diploma.App;
+import com.example.a8androidpetukhova_diploma.Keystore;
+import com.example.a8androidpetukhova_diploma.R;
 
 public class PinActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma;
+package Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -15,16 +15,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.a8androidpetukhova_diploma.App;
+import com.example.a8androidpetukhova_diploma.NoteRepository;
+import com.example.a8androidpetukhova_diploma.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class NewNoteActivity extends AppCompatActivity {
+
+    private NoteRepository noteRepository = App.getNoteRepository();
 
     EditText editTxtTitle;
     EditText editTxtNote;
-
     private CheckBox chBxDeadline;
     private EditText editTxtCalendar;
     private String editTxtCalendarString = "";
@@ -60,13 +68,12 @@ public class NewNoteActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.menuSave:
 
-                if(editTxtTitleString!= null & editTxtNoteString != null & editTxtCalendarString != null) {
+                if (editTxtTitleString != null & editTxtNoteString != null & editTxtCalendarString != null) {
                     System.out.println("ДАННЫЕ ЗАПОЛНЕНЫ!!!");
                     saveNote();
 //                editTxtTitleString = editTxtTitle.getText().toString();
 //                editTxtNoteString = editTxtNote.getText().toString();
 //                NotesActivity.generateItemData(editTxtTitleString, editTxtNoteString, editTxtCalendarString);
-
 
 
 //                titles.add(editTxtTitle.toString());
@@ -78,14 +85,14 @@ public class NewNoteActivity extends AppCompatActivity {
 //                startActivity(intentFromNewNotesToNotes);
 
                     return true;
-                }else{
-                    Toast.makeText(NewNoteActivity.this,"Заполните заметку", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(NewNoteActivity.this, "Заполните заметку", Toast.LENGTH_LONG).show();
                 }
             case android.R.id.home:
                 Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
                 startActivity(intentFromNewNotesToNotes);
-
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
 
@@ -164,7 +171,7 @@ public class NewNoteActivity extends AppCompatActivity {
         Intent intentNewNotesToNotes = new Intent();
         intentNewNotesToNotes.putExtra("title", editTxtTitle.getText().toString());
         intentNewNotesToNotes.putExtra("note", editTxtNote.getText().toString()); //указываем путь к файлу
-        intentNewNotesToNotes.putExtra("deadline",  editTxtCalendarString);
+        intentNewNotesToNotes.putExtra("deadline", editTxtCalendarString);
         setResult(RESULT_OK, intentNewNotesToNotes);
         finish();
 

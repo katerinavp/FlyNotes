@@ -6,4 +6,8 @@
     <color name="colorCircleGrey">#9E9E9E</color>
     <color name="colorCircleFocus">#050505</color>
     <color name="colorCircleYellow">#ffc13b</color>
+    <color name="colorBack">#f5f0e1</color>
+    <color name="colorBtnNumber">#ff6e40</color>
+
+
 </resources>
