@@ -1,4 +1,4 @@
-package Adapter;
+package com.example.a8androidpetukhova_diploma.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,8 +13,6 @@ import com.example.a8androidpetukhova_diploma.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 public class ItemsDataAdapter extends BaseAdapter {
 
     // Хранит список всех элементов списка
@@ -26,7 +24,7 @@ public class ItemsDataAdapter extends BaseAdapter {
 
      // Конструктор, в который передается контекст
     // для создания контролов из XML. И первоначальный список элементов.
-     @Inject
+//     @Inject
      public ItemsDataAdapter(Context context, List<ItemData> items) {
         if (items == null) {
             this.items = new ArrayList<>(); //если данные пустые , то создаем новый список
@@ -43,6 +41,10 @@ public class ItemsDataAdapter extends BaseAdapter {
     public void addItem(ItemData item) {
         this.items.add(item); // добавляем новый датакласс
         notifyDataSetChanged();
+    }
+
+    public void setItems(List<ItemData> items) {
+        this.items = items;
     }
 
     // Удаляет элемент списка.

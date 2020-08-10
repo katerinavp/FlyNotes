@@ -1,4 +1,4 @@
-package Activity;
+package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -16,19 +16,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.a8androidpetukhova_diploma.App;
-import com.example.a8androidpetukhova_diploma.NoteRepository;
+import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
+import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import dagger.hilt.android.AndroidEntryPoint;
+import static java.lang.String.valueOf;
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 public class NewNoteActivity extends AppCompatActivity {
 
+    int idInt = 0;
     private NoteRepository noteRepository = App.getNoteRepository();
 
     EditText editTxtTitle;
@@ -69,6 +71,9 @@ public class NewNoteActivity extends AppCompatActivity {
             case R.id.menuSave:
 
                 if (editTxtTitleString != null & editTxtNoteString != null & editTxtCalendarString != null) {
+                    idInt = +idInt;
+                    String idString = valueOf(idInt);
+                    noteRepository.getNoteById(idString);
                     System.out.println("ДАННЫЕ ЗАПОЛНЕНЫ!!!");
                     saveNote();
 //                editTxtTitleString = editTxtTitle.getText().toString();
@@ -83,7 +88,6 @@ public class NewNoteActivity extends AppCompatActivity {
 //                NotesActivity.generateItemData(titles, notes, deadline);
 //                Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
 //                startActivity(intentFromNewNotesToNotes);
-
                     return true;
                 } else {
                     Toast.makeText(NewNoteActivity.this, "Заполните заметку", Toast.LENGTH_LONG).show();
@@ -168,13 +172,10 @@ public class NewNoteActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
-        Intent intentNewNotesToNotes = new Intent();
-        intentNewNotesToNotes.putExtra("title", editTxtTitle.getText().toString());
-        intentNewNotesToNotes.putExtra("note", editTxtNote.getText().toString()); //указываем путь к файлу
-        intentNewNotesToNotes.putExtra("deadline", editTxtCalendarString);
-        setResult(RESULT_OK, intentNewNotesToNotes);
+        ItemData itemData = new ItemData(editTxtTitle.getText().toString(), editTxtNote.getText().toString(), editTxtCalendarString);
+        noteRepository.saveNote(itemData);
+        setResult(RESULT_OK);
         finish();
-
     }
 
 //        String NOTE_TEXT = "note_text";

@@ -1,4 +1,4 @@
-package Activity;
+package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.a8androidpetukhova_diploma.App;
-import com.example.a8androidpetukhova_diploma.Keystore;
+import com.example.a8androidpetukhova_diploma.Key.Keystore;
 import com.example.a8androidpetukhova_diploma.R;
 
 public class PinActivity extends AppCompatActivity {
@@ -63,7 +63,7 @@ public class PinActivity extends AppCompatActivity {
             Button buttonNumber = (Button) v;
             String numberPin = buttonNumber.getText().toString();
             numberPinBuilder.append(numberPin);
-            String numberPinString = numberPinBuilder.toString();
+            numberPinString = numberPinBuilder.toString();
 
             switch (numberPinBuilder.length()) {
                 case (1):

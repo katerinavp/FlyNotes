@@ -1,4 +1,4 @@
-package Activity;
+package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.a8androidpetukhova_diploma.App;
-import com.example.a8androidpetukhova_diploma.Keystore;
+import com.example.a8androidpetukhova_diploma.Key.Keystore;
 import com.example.a8androidpetukhova_diploma.R;
 
 
