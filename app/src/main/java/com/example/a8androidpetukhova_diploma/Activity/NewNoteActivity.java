@@ -25,9 +25,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import static java.lang.String.valueOf;
+import static com.example.a8androidpetukhova_diploma.Activity.NotesActivity.adapter;
+import static com.example.a8androidpetukhova_diploma.Activity.NotesActivity.readNotes;
 
-//@AndroidEntryPoint
 public class NewNoteActivity extends AppCompatActivity {
 
     private NoteRepository noteRepository = App.getNoteRepository();
@@ -57,17 +57,23 @@ public class NewNoteActivity extends AppCompatActivity {
         if (!isNewNote()) {
             initNewNote();
             intent = getIntent();
-            int noteIndex = intent.getIntExtra("noteIndex", 0);
+            noteIndex = intent.getIntExtra("noteIndex", 0);
             ItemData notes = noteRepository.getNoteById(noteIndex);
+            System.out.println("Получаем noteIndex " + noteIndex);
             editTxtTitle.setText(notes.getTitle());
             editTxtNote.setText(notes.getNote());
             editTxtCalendar.setText(notes.getDeadline());
+            if (!notes.getDeadline().isEmpty()) {
+                chBxDeadline.setChecked(true);
+            } else {
+                chBxDeadline.setChecked(false);
+            }
         }
-            initNewNote();
-            clickChBxDeadline();
-            clickBtnCalendar();
+        initNewNote();
+        clickChBxDeadline();
+        clickBtnCalendar();
+    }
 
-        }
 
     private boolean isNewNote() {
         intent = getIntent();
@@ -88,19 +94,7 @@ public class NewNoteActivity extends AppCompatActivity {
 
                 if (editTxtTitleString != null & editTxtNoteString != null & editTxtCalendarString != null) {
                     System.out.println("ДАННЫЕ ЗАПОЛНЕНЫ!!!");
-                    saveNote();
-//                editTxtTitleString = editTxtTitle.getText().toString();
-//                editTxtNoteString = editTxtNote.getText().toString();
-//                NotesActivity.generateItemData(editTxtTitleString, editTxtNoteString, editTxtCalendarString);
-
-
-//                titles.add(editTxtTitle.toString());
-//                notes.add(editTxtNote.toString());
-//                deadline.add(editTxtCalendar.toString());
-//                System.out.println("Данные сформированы " + titles + " " + notes + " " + deadline);
-//                NotesActivity.generateItemData(titles, notes, deadline);
-//                Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
-//                startActivity(intentFromNewNotesToNotes);
+                    saveNoteMethod();
                     return true;
                 } else {
                     Toast.makeText(NewNoteActivity.this, "Заполните заметку", Toast.LENGTH_LONG).show();
@@ -109,7 +103,6 @@ public class NewNoteActivity extends AppCompatActivity {
                 Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
                 startActivity(intentFromNewNotesToNotes);
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
 
@@ -133,7 +126,6 @@ public class NewNoteActivity extends AppCompatActivity {
                 } else {
                     callDatePicker();
                 }
-
             }
         });
     }
@@ -179,16 +171,29 @@ public class NewNoteActivity extends AppCompatActivity {
                 editTxtCalendar.setText(editTxtCalendarString);
 
             }
+
         }, mYear, mMonth, mDay);
         datePickerDialog.show();
 
     }
 
-    private void saveNote() {
-        ItemData itemData = new ItemData(editTxtTitle.getText().toString(), editTxtNote.getText().toString(), editTxtCalendarString);
-        noteRepository.saveNote(itemData);
+    private void saveNoteMethod() {
+        if (!isNewNote()) {
+            noteRepository.deleteById(noteIndex);
+
+            adapter.setItems(noteRepository.getNotes());
+            adapter.notifyDataSetChanged();
+            // System.out.printf("id " + noteIndex);
+//            System.out.printf("размер коллекции после удаления!!!" + noteRepository.getNotes().size() + "размер коллекции в адаптере" + adapter.getCount());
+
+        }
+
+        noteRepository.saveNote(editTxtTitle.getText().toString(), editTxtNote.getText().toString(), editTxtCalendar.getText().toString());
+
+        System.out.printf("размер коллекции  в адаптере после добавления в репо " + adapter.getCount() + " ");
         setResult(RESULT_OK);
         finish();
+
     }
 
 }

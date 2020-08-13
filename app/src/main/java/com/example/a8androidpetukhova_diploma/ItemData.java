@@ -1,7 +1,8 @@
 package com.example.a8androidpetukhova_diploma;
 
-public class ItemData {
+public class ItemData implements Comparable<ItemData> {
 
+    private int result;
     private int noteId;
     private String title;
     private String note;
@@ -10,7 +11,14 @@ public class ItemData {
     public int getNoteId() {
         return noteId;
     }
-    public ItemData(String title, String note, String deadline) {
+
+    public int compareTo(ItemData deadlineInput) {
+        result = this.deadline.compareTo(deadlineInput.deadline);
+        return result;
+    }
+
+    public ItemData(int noteId, String title, String note, String deadline) {
+        this.noteId = noteId;
         this.title = title;
         this.note = note;
         this.deadline = deadline;

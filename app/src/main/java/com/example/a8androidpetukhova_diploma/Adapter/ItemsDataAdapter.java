@@ -6,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -20,17 +20,18 @@ import com.example.a8androidpetukhova_diploma.R;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-//@AndroidEntryPoint
 public class NotesActivity extends AppCompatActivity {
 
     private static final int NEW_NOTE_ACTIVITY_REQUEST = 20;
-    private NoteRepository noteRepository = App.getNoteRepository();
+    private static NoteRepository noteRepository = App.getNoteRepository();
+    int position = 0;
 
-
-    private ItemsDataAdapter adapter;
+    public static ItemsDataAdapter adapter;
 
     private ListView list;
 
@@ -48,7 +49,6 @@ public class NotesActivity extends AppCompatActivity {
         correctNote();
         deleteNote();
 
-
     }
 
     public void initNotes() {
@@ -62,51 +62,27 @@ public class NotesActivity extends AppCompatActivity {
         list.setOnItemLongClickListener((parent, view, position, id) -> {
             noteRepository.getNoteById(position);
             noteRepository.deleteById(position);
-            // adapter.removeItem(position);
             adapter.notifyDataSetChanged();
             return true;
         });
     }
 
-//    public void openNote() {
-//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView<?> parent, View view,
-//                                    int position, long id) {
-//                Intent i = new Intent(getBaseContext(), NewNoteActivity.class);
-//                i.putExtra("position", position);
-//                startActivity(i);
-//            }
-//
-//        });
-//
-//    }
-
     public void correctNote() {
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(),NewNoteActivity.class);
-                int noteIndex = adapter.getItem(position).getNoteId();
-                intent.putExtra("noteIndex", noteIndex);
-                startActivity(intent);
+//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(getApplicationContext(), NewNoteActivity.class);
+            int noteIndex = adapter.getItem(position).getNoteId();
+            intent.putExtra("noteIndex", noteIndex);
+            System.out.println("Передаем noteIndex " + noteIndex);
+            startActivity(intent);
 
-            }
+//        }
 
+    });
 
-        });
-
-    }
-//        list.setOnItemClickListener((parent, view, position, id) -> {
-//        noteRepository.getNoteById(position);
-//
-//
-////        Intent intentNotesToNote = new Intent(NotesActivity.this, NewNoteActivity.class);
-////
-////        startActivity(intentNotesToNote);
-//
-//
-//    });
-//    }
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //загрузка меню
@@ -148,9 +124,10 @@ public class NotesActivity extends AppCompatActivity {
         }
     }
 
-    private void readNotes() {
+    public static void readNotes() {
         List<ItemData> notes = noteRepository.getNotes();
         adapter.setItems(notes);
+       // Collections.sort(notes);
         adapter.notifyDataSetChanged();
     }
 
@@ -159,5 +136,18 @@ public class NotesActivity extends AppCompatActivity {
         super.onStart();
         readNotes();
     }
+
+//   Collections.sort(ItemData, new Comparator<MyObject> {
+//        public int compare(MyObject o1, MyObject o2) {
+//            DateTime a = o1.getDateTime();
+//            DateTime b = o2.getDateTime();
+//            if (a.lt(b))
+//                return -1;
+//            else if (a.lteq(b)) // it equals
+//                return 0;
+//            else
+//                return 1;
+//        }
+//    });
 
 }
