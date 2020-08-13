@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface NoteRepository {
 
-    String getNoteById(String id);
+    ItemData getNoteById(int id);
     List<ItemData> getNotes();
     void saveNote(ItemData items);
-    void deleteById(String id);
+    void deleteById(int id);
 }
 

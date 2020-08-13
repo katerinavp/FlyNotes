@@ -30,9 +30,8 @@ import static java.lang.String.valueOf;
 //@AndroidEntryPoint
 public class NewNoteActivity extends AppCompatActivity {
 
-    int idInt = 0;
     private NoteRepository noteRepository = App.getNoteRepository();
-
+    private int noteIndex;
     EditText editTxtTitle;
     EditText editTxtNote;
     private CheckBox chBxDeadline;
@@ -40,6 +39,7 @@ public class NewNoteActivity extends AppCompatActivity {
     private String editTxtCalendarString = "";
     private String editTxtTitleString = "";
     private String editTxtNoteString = "";
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +54,25 @@ public class NewNoteActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        initNewNote();
-        clickChBxDeadline();
-        clickBtnCalendar();
+        if (!isNewNote()) {
+            initNewNote();
+            intent = getIntent();
+            int noteIndex = intent.getIntExtra("noteIndex", 0);
+            ItemData notes = noteRepository.getNoteById(noteIndex);
+            editTxtTitle.setText(notes.getTitle());
+            editTxtNote.setText(notes.getNote());
+            editTxtCalendar.setText(notes.getDeadline());
+        }
+            initNewNote();
+            clickChBxDeadline();
+            clickBtnCalendar();
+
+        }
+
+    private boolean isNewNote() {
+        intent = getIntent();
+        int index = intent.getIntExtra("noteIndex", -1);
+        return index == -1;
     }
 
     @Override
@@ -71,9 +87,6 @@ public class NewNoteActivity extends AppCompatActivity {
             case R.id.menuSave:
 
                 if (editTxtTitleString != null & editTxtNoteString != null & editTxtCalendarString != null) {
-                    idInt = +idInt;
-                    String idString = valueOf(idInt);
-                    noteRepository.getNoteById(idString);
                     System.out.println("ДАННЫЕ ЗАПОЛНЕНЫ!!!");
                     saveNote();
 //                editTxtTitleString = editTxtTitle.getText().toString();
@@ -178,35 +191,4 @@ public class NewNoteActivity extends AppCompatActivity {
         finish();
     }
 
-//        String NOTE_TEXT = "note_text";
-//        //if ((editTxtTitle.getText().length() = 0) && (editTxtNote.getText().length() = 0)) {
-//        SharedPreferences myNoteSharedPref = getSharedPreferences("MyNote", MODE_PRIVATE);
-//        SharedPreferences.Editor myEditor = myNoteSharedPref.edit();
-//        String titleTxt = editTxtTitle.getText().toString();
-//        String noteTxt = editTxtNote.getText().toString();
-//        myEditor.putString(NOTE_TEXT, titleTxt);
-//        myEditor.putString(NOTE_TEXT, "; ");
-//        myEditor.putString(NOTE_TEXT, noteTxt);
-//        myEditor.putString(NOTE_TEXT, editTxtCalendarString);
-//        myEditor.apply();
-//        Toast.makeText(NewNoteActivity.this, R.string.data_save_info, Toast.LENGTH_LONG).show();
-
-//        titles.add(editTxtTitle.toString());
-//        notes.add(editTxtNote.toString());
-//        deadline.add(editTxtCalendar.toString());
-//        System.out.println("Данные сформированы " + titles + " " + notes + " " + deadline);
-//        NotesActivity.generateItemData(titles, notes, deadline);
-//        Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
-//       startActivity(intentFromNewNotesToNotes);
-//
-//    }
-
-//    private void generateItemData() {
-//
-//        //int index = random.nextInt(images.size());
-//        adapter.addItem(new ItemData(titles.get(randomIndex), notes.get(randomIndex),
-//                deadline.get(randomIndex)));
-//
-//
-//    }
 }

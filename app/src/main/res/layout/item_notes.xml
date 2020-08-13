@@ -11,6 +11,7 @@
         android:id="@+id/txtNotes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_notes"
@@ -31,7 +32,8 @@
                 android:text="Заголовок"
                 android:gravity="start|top"
                 android:textSize="24sp"
-                android:background="@color/colorBack"/>
+                android:background="@color/colorBack"
+                android:visibility="visible"/>
 
 
             <TextView
@@ -43,7 +45,8 @@
                 android:gravity="fill_vertical"
                 android:text="Заметка"
                 android:textSize="14sp"
-                android:background="@color/colorBack"/>
+                android:background="@color/colorBack"
+                android:visibility="visible"/>
 
             <TextView
                 android:id="@+id/infoTxtDeadline"
@@ -53,7 +56,8 @@
                 android:gravity="bottom|right"
                 android:text="deadline"
                 android:textSize="14sp"
-                android:background="@color/colorBack"/>
+                android:background="@color/colorBack"
+                android:visibility="visible"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

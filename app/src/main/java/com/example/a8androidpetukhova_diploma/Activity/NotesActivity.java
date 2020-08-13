@@ -45,7 +45,10 @@ public class NotesActivity extends AppCompatActivity {
 
         initNotes();
         setOnClickAddNewNotes();
+        correctNote();
         deleteNote();
+
+
     }
 
     public void initNotes() {
@@ -57,11 +60,53 @@ public class NotesActivity extends AppCompatActivity {
     public void deleteNote() {
         // При долгом тапе по элементу списка будем удалять его
         list.setOnItemLongClickListener((parent, view, position, id) -> {
-            adapter.removeItem(position);
+            noteRepository.getNoteById(position);
+            noteRepository.deleteById(position);
+            // adapter.removeItem(position);
             adapter.notifyDataSetChanged();
             return true;
         });
     }
+
+//    public void openNote() {
+//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                Intent i = new Intent(getBaseContext(), NewNoteActivity.class);
+//                i.putExtra("position", position);
+//                startActivity(i);
+//            }
+//
+//        });
+//
+//    }
+
+    public void correctNote() {
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getApplicationContext(),NewNoteActivity.class);
+                int noteIndex = adapter.getItem(position).getNoteId();
+                intent.putExtra("noteIndex", noteIndex);
+                startActivity(intent);
+
+            }
+
+
+        });
+
+    }
+//        list.setOnItemClickListener((parent, view, position, id) -> {
+//        noteRepository.getNoteById(position);
+//
+//
+////        Intent intentNotesToNote = new Intent(NotesActivity.this, NewNoteActivity.class);
+////
+////        startActivity(intentNotesToNote);
+//
+//
+//    });
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //загрузка меню
@@ -108,4 +153,11 @@ public class NotesActivity extends AppCompatActivity {
         adapter.setItems(notes);
         adapter.notifyDataSetChanged();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        readNotes();
+    }
+
 }

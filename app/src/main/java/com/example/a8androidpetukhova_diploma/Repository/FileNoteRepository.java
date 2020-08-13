@@ -6,16 +6,16 @@ import java.util.List;
 
 public class FileNoteRepository implements NoteRepository {
     private List<ItemData> items;
-    String id = "";
+    private ItemData id;
 
     public FileNoteRepository(List<ItemData> items) {
         this.items = items;
     }
 
     @Override
-    public String getNoteById(String id) {
+    public ItemData getNoteById(int id) {
         System.out.println("Получаем id " + id);
-        return id;
+        return this.id;
     }
 
     @Override
@@ -23,17 +23,13 @@ public class FileNoteRepository implements NoteRepository {
         return items;
     }
 
-
     @Override
     public void saveNote(ItemData item) {
         this.items.add(item);
-        System.out.println("Сохранены данные  в репозиторий " + items);
-
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(int id) {
         items.remove(id);
-
     }
 }
