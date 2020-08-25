@@ -17,15 +17,11 @@ import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
-import com.google.gson.Gson;
-
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import static com.example.a8androidpetukhova_diploma.Activity.NotesActivity.adapter;
-import static com.example.a8androidpetukhova_diploma.Activity.NotesActivity.readNotes;
 
 public class NewNoteActivity extends AppCompatActivity {
 

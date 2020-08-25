@@ -2,38 +2,26 @@ package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.a8androidpetukhova_diploma.Adapter.ItemsDataAdapter;
 import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-import static com.example.a8androidpetukhova_diploma.ItemData.result;
 
 public class NotesActivity extends AppCompatActivity {
 
     private static final int NEW_NOTE_ACTIVITY_REQUEST = 20;
     private static NoteRepository noteRepository = App.getNoteRepository();
-    int position = 0;
 
-    public static ItemsDataAdapter adapter;
+    private ItemsDataAdapter adapter;
 
     private ListView list;
 
@@ -126,11 +114,10 @@ public class NotesActivity extends AppCompatActivity {
         }
     }
 
-    public static void readNotes() {
+    private void readNotes() {
         List<ItemData> notes = noteRepository.getNotes();
         adapter.setItems(notes);
         adapter.notifyDataSetChanged();
-
     }
 
     @Override
