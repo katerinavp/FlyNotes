@@ -25,6 +25,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
+import static com.example.a8androidpetukhova_diploma.ItemData.result;
+
 public class NotesActivity extends AppCompatActivity {
 
     private static final int NEW_NOTE_ACTIVITY_REQUEST = 20;
@@ -127,8 +129,8 @@ public class NotesActivity extends AppCompatActivity {
     public static void readNotes() {
         List<ItemData> notes = noteRepository.getNotes();
         adapter.setItems(notes);
-       // Collections.sort(notes);
         adapter.notifyDataSetChanged();
+
     }
 
     @Override

@@ -11,20 +11,19 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
+import com.google.gson.Gson;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
 import static com.example.a8androidpetukhova_diploma.Activity.NotesActivity.adapter;
 import static com.example.a8androidpetukhova_diploma.Activity.NotesActivity.readNotes;
 
@@ -180,16 +179,10 @@ public class NewNoteActivity extends AppCompatActivity {
     private void saveNoteMethod() {
         if (!isNewNote()) {
             noteRepository.deleteById(noteIndex);
-
-            adapter.setItems(noteRepository.getNotes());
-            adapter.notifyDataSetChanged();
             // System.out.printf("id " + noteIndex);
 //            System.out.printf("размер коллекции после удаления!!!" + noteRepository.getNotes().size() + "размер коллекции в адаптере" + adapter.getCount());
-
         }
-
         noteRepository.saveNote(editTxtTitle.getText().toString(), editTxtNote.getText().toString(), editTxtCalendar.getText().toString());
-
         System.out.printf("размер коллекции  в адаптере после добавления в репо " + adapter.getCount() + " ");
         setResult(RESULT_OK);
         finish();

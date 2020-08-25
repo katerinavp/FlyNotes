@@ -15,6 +15,7 @@ public interface NoteRepository {
     List<ItemData> getNotes();
     void saveNote(String title, String note, String deadline);
     void deleteById(int id);
-//    void updateNote(ItemData item);
+
+
 }
 
