@@ -1,11 +1,5 @@
 package com.example.a8androidpetukhova_diploma;
 
-import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
-
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-
 public class ItemData implements Comparable<ItemData> {
 
     public static int result;
@@ -19,14 +13,9 @@ public class ItemData implements Comparable<ItemData> {
         return noteId;
     }
 
-    public int compareTo(ItemData Other) {
-        if(this.deadline.compareTo(Other.getDeadline()) < 0){
-            return -1;
-        }else if(this.deadline.compareTo(Other.getDeadline()) > 0) {
-            return 1;
-        }
-            return 0;
-
+    public int compareTo(ItemData item) {
+        result = this.deadline.compareTo(item.deadline);
+        return result;
     }
 
 //    public int compareTo(ItemData deadlineInput) {

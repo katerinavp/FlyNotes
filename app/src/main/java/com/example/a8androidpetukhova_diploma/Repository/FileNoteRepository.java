@@ -56,8 +56,14 @@ public class FileNoteRepository implements NoteRepository {
         this.items.add(new ItemData(id, title, note, deadline));
 
 //        System.out.println("result result" + result);
-        if(result != 0) {
+
+        adapter.getItem(id).compareTo(new ItemData(id, title, note, deadline));
+
+        if(result == 0) {
+            System.out.println("Результат равен нулю");
+        }else{
             Collections.sort(items);
+            System.out.println("Сортировка коллекции");
         }
         //getLatestFilefromDir(items);
         System.out.println("Размер коллекции равен " + items.size());
