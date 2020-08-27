@@ -1,10 +1,8 @@
 package com.example.a8androidpetukhova_diploma.Repository;
 
 import androidx.annotation.Nullable;
-
 import com.example.a8androidpetukhova_diploma.DeadlineComparator;
 import com.example.a8androidpetukhova_diploma.ItemData;
-
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -48,12 +46,38 @@ public class FileNoteRepository implements NoteRepository {
 
         items.add(new ItemData(id, title, note, deadline));
 
-        Collections.sort(items, deadlineComparator);
     }
 
     @Override
     public void deleteById(int id) {
         items.removeIf(itemData -> itemData.getNoteId() == id);
-        Collections.sort(items, deadlineComparator);
+       // sort();
+        // Collections.sort(items, deadlineComparator);
     }
+
+    public void update(int id, String title, String note, String deadline) {
+        items.set(id, new ItemData(id, title, note, deadline));
+
+    }
+
+    public void sort() {
+        Collections.sort(items, deadlineComparator);
+
+    }
+
+    public void makeNewId() {
+        int i =0;
+
+        for (ItemData item : items) {
+
+            items.set(i, new ItemData(i, item.getTitle(), item.getNote(), item.getDeadline()));
+            i++;
+        }
+    }
+
+
+
+
+
+
 }

@@ -68,11 +68,9 @@ public class NotesActivity extends AppCompatActivity {
             System.out.println("Передаем noteIndex " + noteIndex);
             startActivity(intent);
 
-//        }
+        });
 
-    });
-
-}
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //загрузка меню
@@ -118,6 +116,9 @@ public class NotesActivity extends AppCompatActivity {
         List<ItemData> notes = noteRepository.getNotes();
         adapter.setItems(notes);
         adapter.notifyDataSetChanged();
+        noteRepository.makeNewId();
+        adapter.setItems(notes);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
@@ -126,17 +127,5 @@ public class NotesActivity extends AppCompatActivity {
         readNotes();
     }
 
-//   Collections.sort(ItemData, new Comparator<MyObject> {
-//        public int compare(MyObject o1, MyObject o2) {
-//            DateTime a = o1.getDateTime();
-//            DateTime b = o2.getDateTime();
-//            if (a.lt(b))
-//                return -1;
-//            else if (a.lteq(b)) // it equals
-//                return 0;
-//            else
-//                return 1;
-//        }
-//    });
 
 }
