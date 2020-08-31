@@ -1,7 +1,12 @@
 package com.example.a8androidpetukhova_diploma;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
 public class ItemData {
 
+    @PrimaryKey
     private int noteId;
     private String title;
     private String note;

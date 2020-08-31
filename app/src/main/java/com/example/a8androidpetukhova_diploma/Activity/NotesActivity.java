@@ -15,14 +15,11 @@ import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 import java.util.List;
 import java.util.Objects;
 
-
 public class NotesActivity extends AppCompatActivity {
 
     private static final int NEW_NOTE_ACTIVITY_REQUEST = 20;
     private static NoteRepository noteRepository = App.getNoteRepository();
-
     private ItemsDataAdapter adapter;
-
     private ListView list;
 
     @Override
@@ -33,6 +30,7 @@ public class NotesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_notes);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Заметки");
+
 
         initNotes();
         setOnClickAddNewNotes();
@@ -119,6 +117,7 @@ public class NotesActivity extends AppCompatActivity {
         noteRepository.makeNewId();
         adapter.setItems(notes);
         adapter.notifyDataSetChanged();
+
     }
 
     @Override

@@ -24,5 +24,6 @@ public interface NoteRepository {
     void sort();
 
     void makeNewId();
+
 }
 

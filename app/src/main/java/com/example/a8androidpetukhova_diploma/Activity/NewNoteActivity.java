@@ -25,6 +25,7 @@ import java.util.Locale;
 public class NewNoteActivity extends AppCompatActivity {
 
     private NoteRepository noteRepository = App.getNoteRepository();
+
     private int noteIndex;
     EditText editTxtTitle;
     EditText editTxtNote;
