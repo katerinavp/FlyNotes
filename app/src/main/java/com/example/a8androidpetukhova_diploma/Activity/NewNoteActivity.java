@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
+import com.example.a8androidpetukhova_diploma.Repository.NoteDao;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -35,6 +36,8 @@ public class NewNoteActivity extends AppCompatActivity {
     private String editTxtTitleString = "";
     private String editTxtNoteString = "";
     private Intent intent;
+    private NoteDao noteDao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

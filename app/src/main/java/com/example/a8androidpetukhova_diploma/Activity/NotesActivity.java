@@ -2,6 +2,7 @@ package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -14,6 +15,7 @@ import com.example.a8androidpetukhova_diploma.R;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 import java.util.List;
 import java.util.Objects;
+
 
 public class NotesActivity extends AppCompatActivity {
 
@@ -31,12 +33,16 @@ public class NotesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Заметки");
 
+        if (savedInstanceState != null) {
+            noteRepository.convertFromGson();
+            Log.i("myTag", "saveInstanceState != null");
+        } else {
+            initNotes();
+            setOnClickAddNewNotes();
+            correctNote();
+            deleteNote();
 
-        initNotes();
-        setOnClickAddNewNotes();
-        correctNote();
-        deleteNote();
-
+        }
     }
 
     public void initNotes() {
@@ -124,6 +130,7 @@ public class NotesActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         readNotes();
+
     }
 
 

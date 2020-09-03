@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 
 import com.example.a8androidpetukhova_diploma.ItemData;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 
@@ -25,5 +26,6 @@ public interface NoteRepository {
 
     void makeNewId();
 
+    void convertFromGson();
 }
 

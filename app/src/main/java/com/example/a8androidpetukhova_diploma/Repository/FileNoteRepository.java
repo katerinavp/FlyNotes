@@ -1,11 +1,15 @@
 package com.example.a8androidpetukhova_diploma.Repository;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import com.example.a8androidpetukhova_diploma.DeadlineComparator;
 import com.example.a8androidpetukhova_diploma.ItemData;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,13 +20,15 @@ public class FileNoteRepository implements NoteRepository {
     private NoteDao noteDao;
     private List<ItemData> items;
     private final Comparator<ItemData> deadlineComparator = new DeadlineComparator();
-
+    Gson gson;
+    String jsonString;
 
     public FileNoteRepository(List<ItemData> items) {
         this.items = items;
 
     }
-    public void NoteRep(Application application){
+
+    public void NoteRep(Application application) {
         AppDatabase database = AppDatabase.getDatabase(application);
         noteDao = database.getNoteDao();
         items = noteDao.getAllNote();
@@ -59,6 +65,7 @@ public class FileNoteRepository implements NoteRepository {
 
         items.add(new ItemData(id, title, note, deadline));
 
+
     }
 
     @Override
@@ -86,7 +93,44 @@ public class FileNoteRepository implements NoteRepository {
             items.set(i, new ItemData(i, item.getTitle(), item.getNote(), item.getDeadline()));
             i++;
         }
+        convertToGson();
     }
+
+
+    public void convertToGson() {
+        GsonBuilder builder = new GsonBuilder();
+        gson = builder.create();
+        jsonString = gson.toJson(items);
+        Log.i("GSON", gson.toJson(items));
+        Log.i("GSON", jsonString);
+
+    }
+
+    public void convertFromGson() {
+        int i = 0;
+        Gson gson = new Gson();
+        List<ItemData> itemsJson = gson.fromJson(jsonString, new TypeToken<List<ItemData>>() {
+        }.getType());
+        for (ItemData itemJson : itemsJson) {
+            items.set(i, itemJson);
+            Log.i("fromGSONi", itemJson.toString());
+            i++;
+        }
+
+    }
+
+//    public static boolean isJson(String Json) {
+//        try {
+//            new JSONObject(Json);
+//        } catch (JSONException ex) {
+//            try {
+//                new JSONArray(Json);
+//            } catch (JSONException ex1) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
 
 
 }
