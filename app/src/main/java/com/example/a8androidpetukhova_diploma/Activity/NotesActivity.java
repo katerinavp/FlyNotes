@@ -1,5 +1,8 @@
 package com.example.a8androidpetukhova_diploma.Activity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +22,7 @@ import java.util.Objects;
 
 public class NotesActivity extends AppCompatActivity {
 
+    final int DIALOG_EXIT = 1;
     private static final int NEW_NOTE_ACTIVITY_REQUEST = 20;
     private static NoteRepository noteRepository = App.getNoteRepository();
     private ItemsDataAdapter adapter;
@@ -54,9 +58,26 @@ public class NotesActivity extends AppCompatActivity {
     public void deleteNote() {
         // При долгом тапе по элементу списка будем удалять его
         list.setOnItemLongClickListener((parent, view, position, id) -> {
-            noteRepository.getNoteById(position);
-            noteRepository.deleteById(position);
-            adapter.notifyDataSetChanged();
+            AlertDialog.Builder builder = new AlertDialog.Builder(NotesActivity.this);
+            builder.setTitle(R.string.attention);
+            builder.setMessage(R.string.question_delete_the_note);
+            builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                    noteRepository.getNoteById(position);
+                    noteRepository.deleteById(position);
+                    adapter.notifyDataSetChanged();
+
+                }
+            });
+
+            builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.dismiss();
+                }
+            });
+            builder.show();
+
             return true;
         });
     }
@@ -131,6 +152,21 @@ public class NotesActivity extends AppCompatActivity {
         super.onStart();
         readNotes();
 
+    }
+
+    public AlertDialog.Builder getErrorDialog(String message, Context context) {
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+        alertDialog.setTitle(getString(R.string.app_name)).setMessage(message);
+        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+
+            }
+        });
+        return alertDialog;
     }
 
 

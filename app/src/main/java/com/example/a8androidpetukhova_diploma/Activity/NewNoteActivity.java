@@ -190,4 +190,5 @@ public class NewNoteActivity extends AppCompatActivity {
         finish();
 
     }
+
 }

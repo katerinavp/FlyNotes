@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Заметки</string>
+    <string name="app_name">FlyNotes</string>
     <string name="title">Заголовок</string>
     <string name="note">Тело заметки</string>
     <string name="deadline_message">Для выбора даты дедлайна установите флажок "Есть дедлайн"</string>
@@ -13,4 +13,8 @@
     <string name="Set_password">Установите пароль из 4-х чисел</string>
     <string name="password_is_correct">Пароль введен корректно</string>
     <string name="password_is_incorrect">Введен неправильный пин - код! Попробуйте еще раз.</string>
+    <string name="attention">Внимание!</string>
+    <string name="question_delete_the_note">Вы уверены, что хотите удалить заметку?</string>
+    <string name="delete">Удалить</string>
+    <string name="cancel">Отмена</string>
 </resources>

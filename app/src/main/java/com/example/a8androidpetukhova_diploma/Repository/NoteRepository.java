@@ -1,6 +1,9 @@
 package com.example.a8androidpetukhova_diploma.Repository;
 
 
+import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.a8androidpetukhova_diploma.ItemData;
@@ -27,5 +30,6 @@ public interface NoteRepository {
     void makeNewId();
 
     void convertFromGson();
+
 }
 

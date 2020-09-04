@@ -1,8 +1,10 @@
 package com.example.a8androidpetukhova_diploma.Repository;
 
 import android.app.Application;
+import android.os.Bundle;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.a8androidpetukhova_diploma.DeadlineComparator;
@@ -17,6 +19,7 @@ import java.util.List;
 
 public class FileNoteRepository implements NoteRepository {
 
+    final static String TEXT_VIEW_TEXT_KEY = "TEXTVIEW_TEXT";
     private NoteDao noteDao;
     private List<ItemData> items;
     private final Comparator<ItemData> deadlineComparator = new DeadlineComparator();
