@@ -1,11 +1,9 @@
 package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -19,10 +17,8 @@ import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 import java.util.List;
 import java.util.Objects;
 
-
 public class NotesActivity extends AppCompatActivity {
 
-    final int DIALOG_EXIT = 1;
     private static final int NEW_NOTE_ACTIVITY_REQUEST = 20;
     private static NoteRepository noteRepository = App.getNoteRepository();
     private ItemsDataAdapter adapter;
@@ -37,16 +33,11 @@ public class NotesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Заметки");
 
-        if (savedInstanceState != null) {
-            noteRepository.convertFromGson();
-            Log.i("myTag", "saveInstanceState != null");
-        } else {
             initNotes();
             setOnClickAddNewNotes();
             correctNote();
             deleteNote();
 
-        }
     }
 
     public void initNotes() {
@@ -111,10 +102,6 @@ public class NotesActivity extends AppCompatActivity {
                 startActivity(intentSetup);
                 return true;
 
-//            case android.R.id.:
-//                Intent intentNotes = new Intent(SetupActivity.this, NotesActivity.class);
-//                startActivity(intentNotes);
-//                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -141,9 +128,6 @@ public class NotesActivity extends AppCompatActivity {
         List<ItemData> notes = noteRepository.getNotes();
         adapter.setItems(notes);
         adapter.notifyDataSetChanged();
-        noteRepository.makeNewId();
-        adapter.setItems(notes);
-        adapter.notifyDataSetChanged();
 
     }
 
@@ -153,21 +137,5 @@ public class NotesActivity extends AppCompatActivity {
         readNotes();
 
     }
-
-    public AlertDialog.Builder getErrorDialog(String message, Context context) {
-        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-        alertDialog.setTitle(getString(R.string.app_name)).setMessage(message);
-        alertDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss();
-
-
-            }
-        });
-        return alertDialog;
-    }
-
 
 }

@@ -96,15 +96,27 @@
 
     <ImageButton
         android:id="@+id/btnCalendar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:adjustViewBounds="true"
         android:cropToPadding="false"
         android:scaleType="fitCenter"
+        android:alpha="0.5"
         android:src="@drawable/calendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"
         app:layout_constraintTop_toBottomOf="@id/chBxDeadline" />
+
+    <ImageView
+        android:id="@+id/Calendar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/calendar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
+        app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"
+        app:layout_constraintTop_toBottomOf="@id/chBxDeadline" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

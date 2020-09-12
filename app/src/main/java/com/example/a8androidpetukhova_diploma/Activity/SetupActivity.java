@@ -1,7 +1,6 @@
 package com.example.a8androidpetukhova_diploma.Activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
@@ -10,10 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.Key.Keystore;
 import com.example.a8androidpetukhova_diploma.R;
@@ -22,21 +19,15 @@ import com.example.a8androidpetukhova_diploma.R;
 public class SetupActivity extends AppCompatActivity {
 
     private Keystore keystore = App.getKeystore();
-
     private static long back_pressed;
-    static final String filePassword = "Password"; //  //текст для хеширования
     private static EditText editPin;
     ImageButton imageBtnEyeBlind;
     ImageButton imageBtnEyeOpen;
-    private static String PASSWORD_TEXT = "password_text";
-    private SharedPreferences myPasswordSharedPref;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
-
         Toolbar toolbar = findViewById(R.id.toolbar_setup);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -44,6 +35,7 @@ public class SetupActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
         init();
         btnClick();
     }
@@ -59,21 +51,14 @@ public class SetupActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) { // обработка кнопки menuSetup
         switch (item.getItemId()) {
-//            case R.id.:
-//
-//                return true;
-
             case android.R.id.home:
                 if (keystore.hasPin()) {
                     Intent intentSetupToNotes = new Intent(SetupActivity.this, NotesActivity.class);
                     startActivity(intentSetupToNotes);
                     return true;
-
-                } else {
-                    super.onBackPressed();
-                    finish();
                 }
             default:
+                Toast.makeText(SetupActivity.this, "Установите пароль", Toast.LENGTH_LONG).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -121,7 +106,6 @@ public class SetupActivity extends AppCompatActivity {
             }
         });
 
-
         imageBtnEyeOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +116,6 @@ public class SetupActivity extends AppCompatActivity {
             }
 
         });
-
 
     }
 

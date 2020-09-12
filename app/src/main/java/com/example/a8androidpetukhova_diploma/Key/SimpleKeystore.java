@@ -13,7 +13,7 @@ public class SimpleKeystore implements Keystore {
 
     @Override
     public boolean hasPin() {
-             return sharedPreferences.contains(PASSWORD_TEXT);
+        return sharedPreferences.contains(PASSWORD_TEXT);
     }
 
     @Override

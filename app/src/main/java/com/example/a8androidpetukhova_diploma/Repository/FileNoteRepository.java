@@ -1,42 +1,31 @@
 package com.example.a8androidpetukhova_diploma.Repository;
 
-import android.app.Application;
-import android.os.Bundle;
-import android.util.Log;
-
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import com.example.a8androidpetukhova_diploma.DeadlineComparator;
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class FileNoteRepository implements NoteRepository {
 
-    final static String TEXT_VIEW_TEXT_KEY = "TEXTVIEW_TEXT";
-    private NoteDao noteDao;
-    private List<ItemData> items;
+    private List<ItemData> items = Collections.emptyList();
     private final Comparator<ItemData> deadlineComparator = new DeadlineComparator();
-    Gson gson;
-    String jsonString;
+    private final Gson gson = new Gson();
+    private final File notesFile;
 
-    public FileNoteRepository(List<ItemData> items) {
-        this.items = items;
-
+    public FileNoteRepository(File notesFile) {
+        this.notesFile = notesFile;
+        readAll();
+        sort();
     }
-
-    public void NoteRep(Application application) {
-        AppDatabase database = AppDatabase.getDatabase(application);
-        noteDao = database.getNoteDao();
-        items = noteDao.getAllNote();
-    }
-
 
     @Nullable
     @Override
@@ -65,75 +54,63 @@ public class FileNoteRepository implements NoteRepository {
         } else {
             id = items.get(items.size() - 1).getNoteId() + 1;
         }
-
-        items.add(new ItemData(id, title, note, deadline));
-
-
+        final ItemData itemData = new ItemData(id, title, note, deadline);
+        items.add(itemData);
+        final File noteFile = new File(notesFile, String.valueOf(id));
+        saveItemToFile(itemData, noteFile);
+        sort();
     }
 
     @Override
     public void deleteById(int id) {
         items.removeIf(itemData -> itemData.getNoteId() == id);
-        // sort();
-        // Collections.sort(items, deadlineComparator);
+        //noinspection ResultOfMethodCallIgnored
+        new File(notesFile, String.valueOf(id)).delete();
+        sort();
     }
 
-    public void update(int id, String title, String note, String deadline) {
-        items.set(id, new ItemData(id, title, note, deadline));
-
-    }
-
-    public void sort() {
+    private void sort() {
         Collections.sort(items, deadlineComparator);
-
-    }
-
-    public void makeNewId() {
         int i = 0;
-
         for (ItemData item : items) {
-
             items.set(i, new ItemData(i, item.getTitle(), item.getNote(), item.getDeadline()));
             i++;
         }
-        convertToGson();
     }
 
-
-    public void convertToGson() {
-        GsonBuilder builder = new GsonBuilder();
-        gson = builder.create();
-        jsonString = gson.toJson(items);
-        Log.i("GSON", gson.toJson(items));
-        Log.i("GSON", jsonString);
-
+    public void update(int id, String title, String note, String deadline) {
+        final ItemData itemData = new ItemData(id, title, note, deadline);
+        items.set(id, itemData);
+        //noinspection ResultOfMethodCallIgnored
+        new File(notesFile, String.valueOf(id)).delete();
+        final File noteFile = new File(notesFile, String.valueOf(id));
+        saveItemToFile(itemData, noteFile);
+        sort();
     }
 
-    public void convertFromGson() {
-        int i = 0;
-        Gson gson = new Gson();
-        List<ItemData> itemsJson = gson.fromJson(jsonString, new TypeToken<List<ItemData>>() {
-        }.getType());
-        for (ItemData itemJson : itemsJson) {
-            items.set(i, itemJson);
-            Log.i("fromGSONi", itemJson.toString());
-            i++;
+    private void saveItemToFile(ItemData itemData, File noteFile) {
+        try (PrintWriter writer = new PrintWriter(noteFile)) {
+            writer.print(gson.toJson(itemData));
+        } catch (IOException e) {
+            // do nothing
+        }
+    }
+
+    private void readAll() {
+        final String[] files = notesFile.list();
+        if (files == null) {
+            items = new ArrayList<>();
+            return;
         }
 
+        items = new ArrayList<>(files.length);
+        for (String fileName: files) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(new File(notesFile, fileName)))) {
+                ItemData item = gson.fromJson(reader.readLine(), ItemData.class);
+                items.add(item);
+            } catch (IOException e) {
+                // do nothing
+            }
+        }
     }
-
-//    public static boolean isJson(String Json) {
-//        try {
-//            new JSONObject(Json);
-//        } catch (JSONException ex) {
-//            try {
-//                new JSONArray(Json);
-//            } catch (JSONException ex1) {
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-
-
 }

@@ -271,8 +271,8 @@
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
-                app:srcCompat="?attr/homeAsUpIndicator"
-                android:background="@color/colorBtnNumber"/>
+                android:background="@color/colorBtnNumber"
+                app:srcCompat="?attr/homeAsUpIndicator" />
 
         </LinearLayout>
     </LinearLayout>

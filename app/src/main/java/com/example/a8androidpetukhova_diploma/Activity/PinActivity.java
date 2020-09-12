@@ -5,10 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
 import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.Key.Keystore;
 import com.example.a8androidpetukhova_diploma.R;
@@ -107,13 +105,12 @@ public class PinActivity extends AppCompatActivity {
                     imageCircleYel4.setVisibility(View.VISIBLE);
                     break;
             }
-            Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
+            //Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
             if (numberPinString.length() != 4) {
-                //numberPinBuilder.append(numberPin);
                 setOnClickButton();
-                Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
+                //Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
+                // Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
                 checkPin(numberPinString);
             }
         }
@@ -137,7 +134,7 @@ public class PinActivity extends AppCompatActivity {
         findViewById(R.id.imageBtnDelete).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (numberPinBuilder == null) {
+                if (numberPinBuilder.length() == 0) {
                     Toast.makeText(PinActivity.this, "Введите пароль", Toast.LENGTH_LONG).show();
                     setOnClickButton();
                 } else {
@@ -194,12 +191,13 @@ public class PinActivity extends AppCompatActivity {
                             imageCircleYel4.setVisibility(View.VISIBLE);
                             break;
                     }
-                    Toast.makeText(PinActivity.this, numberPinBuilder.toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(PinActivity.this, numberPinBuilder.toString(), Toast.LENGTH_LONG).show();
                     setOnClickButton();
                 }
             }
         });
     }
+
     private void checkPin(String numberPinString) {
         if (!keystore.checkPin(numberPinString)) {
             Toast.makeText(PinActivity.this, getString(R.string.password_is_incorrect), Toast.LENGTH_LONG).show();
@@ -213,7 +211,7 @@ public class PinActivity extends AppCompatActivity {
             imageCircle4.setVisibility(View.VISIBLE);
             imageCircleYel4.setVisibility(View.INVISIBLE);
             setOnClickButton();
-            Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
+            //Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(PinActivity.this, R.string.password_is_correct, Toast.LENGTH_LONG).show();
             Intent intentPinToNotes = new Intent(PinActivity.this, NotesActivity.class);

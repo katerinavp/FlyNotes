@@ -16,7 +16,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.a8androidpetukhova_diploma.App;
 import com.example.a8androidpetukhova_diploma.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
-import com.example.a8androidpetukhova_diploma.Repository.NoteDao;
 import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,7 +25,6 @@ import java.util.Locale;
 public class NewNoteActivity extends AppCompatActivity {
 
     private NoteRepository noteRepository = App.getNoteRepository();
-
     private int noteIndex;
     EditText editTxtTitle;
     EditText editTxtNote;
@@ -36,7 +34,6 @@ public class NewNoteActivity extends AppCompatActivity {
     private String editTxtTitleString = "";
     private String editTxtNoteString = "";
     private Intent intent;
-    private NoteDao noteDao;
 
 
     @Override
@@ -185,7 +182,7 @@ public class NewNoteActivity extends AppCompatActivity {
         } else {
             noteRepository.saveNote(editTxtTitle.getText().toString(), editTxtNote.getText().toString(), editTxtCalendar.getText().toString());
         }
-        noteRepository.sort();
+
         setResult(RESULT_OK);
         finish();
 
