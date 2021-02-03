@@ -86,7 +86,7 @@ public class NewNoteActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { // обработка кнопки menuSave
+    public boolean onOptionsItemSelected(MenuItem item) { 
         switch (item.getItemId()) {
             case R.id.menuSave:
                 if (editTxtTitleString != null & editTxtNoteString != null & editTxtCalendarString != null) {

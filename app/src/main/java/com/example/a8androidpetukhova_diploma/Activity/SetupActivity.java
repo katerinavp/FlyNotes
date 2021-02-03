@@ -49,7 +49,7 @@ public class SetupActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { // обработка кнопки menuSetup
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 if (keystore.hasPin()) {

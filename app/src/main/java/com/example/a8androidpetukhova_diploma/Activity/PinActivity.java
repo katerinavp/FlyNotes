@@ -105,19 +105,15 @@ public class PinActivity extends AppCompatActivity {
                     imageCircleYel4.setVisibility(View.VISIBLE);
                     break;
             }
-            //Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
             if (numberPinString.length() != 4) {
                 setOnClickButton();
-                //Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
             } else {
-                // Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
                 checkPin(numberPinString);
             }
         }
     };
 
     private void setOnClickButton() {
-        //устанавливаем слушателя для кнопок всех
         findViewById(R.id.btn0).setOnClickListener(numberButtonListener);
         findViewById(R.id.btn1).setOnClickListener(numberButtonListener);
         findViewById(R.id.btn2).setOnClickListener(numberButtonListener);
@@ -191,7 +187,6 @@ public class PinActivity extends AppCompatActivity {
                             imageCircleYel4.setVisibility(View.VISIBLE);
                             break;
                     }
-                    //Toast.makeText(PinActivity.this, numberPinBuilder.toString(), Toast.LENGTH_LONG).show();
                     setOnClickButton();
                 }
             }
@@ -211,7 +206,6 @@ public class PinActivity extends AppCompatActivity {
             imageCircle4.setVisibility(View.VISIBLE);
             imageCircleYel4.setVisibility(View.INVISIBLE);
             setOnClickButton();
-            //Toast.makeText(PinActivity.this, numberPinString, Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(PinActivity.this, R.string.password_is_correct, Toast.LENGTH_LONG).show();
             Intent intentPinToNotes = new Intent(PinActivity.this, NotesActivity.class);

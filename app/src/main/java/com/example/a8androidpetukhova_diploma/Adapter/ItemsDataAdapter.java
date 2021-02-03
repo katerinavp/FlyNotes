@@ -29,7 +29,7 @@ public class ItemsDataAdapter extends BaseAdapter {
         } else {
             this.items = items;
         }
-        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); // для инфлейта наших данных используем инфлейтер
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     // Добавляет элемент в конец списка.
@@ -55,13 +55,13 @@ public class ItemsDataAdapter extends BaseAdapter {
     // Он возвращает колличество элементов списка.
     @Override
     public int getCount() {
-        return items.size(); //передаем длину нашего списка, допуситм у нас список из 10 элементов
+        return items.size();
     }
 
     // Тоже обязательный метод.
     // Должен возвращать элемент списка на позиции - position
     @Override
-    public ItemData getItem(int position) { // передается позиция и надо возвратить нашу дату по позиции.
+    public ItemData getItem(int position) {
         if (position < items.size()) {
             return items.get(position);
         } else {
@@ -98,7 +98,7 @@ public class ItemsDataAdapter extends BaseAdapter {
 
         infoTxtTitle.setText(itemData.getTitle());
         infoTxtNote.setText(itemData.getNote());
-        infoTxtDeadline.setText(itemData.getDeadline()); // один листенер для всех чебоксов
+        infoTxtDeadline.setText(itemData.getDeadline());
 
         return view;
     }

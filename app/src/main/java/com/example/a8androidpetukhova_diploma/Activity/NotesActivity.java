@@ -74,9 +74,6 @@ public class NotesActivity extends AppCompatActivity {
     }
 
     public void correctNote() {
-//        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         list.setOnItemClickListener((parent, view, position, id) -> {
             Intent intent = new Intent(getApplicationContext(), NewNoteActivity.class);
             int noteIndex = adapter.getItem(position).getNoteId();
@@ -95,7 +92,7 @@ public class NotesActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { // обработка кнопки menuSetup
+    public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuSetup:
                 Intent intentSetup = new Intent(NotesActivity.this, SetupActivity.class);
