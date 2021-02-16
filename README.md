@@ -1,5 +1,5 @@
 # FlyNotes
-Приложение для создания заметок.
+## Приложение для создания заметок.
 
 ---
 <img src="https://github.com/katerinavp/FlyNotes/blob/master/post-it.png" width="100" height="100">
