@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma;
+package com.petukhova.flynotes;
 
 import android.text.TextUtils;
 

@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma.Activity;
+package com.petukhova.flynotes.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,11 +9,12 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.example.a8androidpetukhova_diploma.Adapter.ItemsDataAdapter;
-import com.example.a8androidpetukhova_diploma.App;
-import com.example.a8androidpetukhova_diploma.ItemData;
+import com.petukhova.flynotes.Adapter.ItemsDataAdapter;
+import com.petukhova.flynotes.App;
+import com.petukhova.flynotes.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
-import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
+import com.petukhova.flynotes.Repository.NoteRepository;
+
 import java.util.List;
 import java.util.Objects;
 

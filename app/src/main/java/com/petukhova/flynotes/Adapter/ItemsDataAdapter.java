@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma.Adapter;
+package com.petukhova.flynotes.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.example.a8androidpetukhova_diploma.ItemData;
+import com.petukhova.flynotes.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

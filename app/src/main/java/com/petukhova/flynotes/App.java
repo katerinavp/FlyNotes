@@ -1,11 +1,12 @@
-package com.example.a8androidpetukhova_diploma;
+package com.petukhova.flynotes;
 
 import android.app.Application;
 import android.content.Context;
-import com.example.a8androidpetukhova_diploma.Key.Keystore;
-import com.example.a8androidpetukhova_diploma.Key.SimpleKeystore;
-import com.example.a8androidpetukhova_diploma.Repository.FileNoteRepository;
-import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
+import com.petukhova.flynotes.Key.Keystore;
+import com.petukhova.flynotes.Key.SimpleKeystore;
+import com.petukhova.flynotes.Repository.FileNoteRepository;
+import com.petukhova.flynotes.Repository.NoteRepository;
+
 import java.io.File;
 
 public class App extends Application {

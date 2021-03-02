@@ -1,7 +1,7 @@
-package com.example.a8androidpetukhova_diploma.Repository;
+package com.petukhova.flynotes.Repository;
 
 import androidx.annotation.Nullable;
-import com.example.a8androidpetukhova_diploma.ItemData;
+import com.petukhova.flynotes.ItemData;
 import java.util.List;
 
 public interface NoteRepository {

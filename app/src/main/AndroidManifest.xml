@@ -3,14 +3,14 @@
     package="com.example.a8androidpetukhova_diploma">
 
     <application
-        android:name="com.example.a8androidpetukhova_diploma.App"
+        android:name="com.petukhova.flynotes.App"
         android:allowBackup="true"
         android:icon="@drawable/ic_paper"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.a8androidpetukhova_diploma.Activity.PinActivity">
+        <activity android:name="com.petukhova.flynotes.Activity.PinActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,10 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.example.a8androidpetukhova_diploma.Activity.NewNoteActivity" />
-        <activity android:name="com.example.a8androidpetukhova_diploma.Activity.NotesActivity" />
-        <activity android:name="com.example.a8androidpetukhova_diploma.Activity.SetupActivity" />
-<!--                <activity android:name=".PinActivity"/>-->
+        <activity android:name="com.petukhova.flynotes.Activity.NewNoteActivity" />
+        <activity android:name="com.petukhova.flynotes.Activity.NotesActivity" />
+        <activity android:name="com.petukhova.flynotes.Activity.SetupActivity" />
     </application>
 
 

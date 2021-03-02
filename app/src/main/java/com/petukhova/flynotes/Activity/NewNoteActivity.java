@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma.Activity;
+package com.petukhova.flynotes.Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -13,10 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.example.a8androidpetukhova_diploma.App;
-import com.example.a8androidpetukhova_diploma.ItemData;
+import com.petukhova.flynotes.App;
+import com.petukhova.flynotes.ItemData;
 import com.example.a8androidpetukhova_diploma.R;
-import com.example.a8androidpetukhova_diploma.Repository.NoteRepository;
+import com.petukhova.flynotes.Repository.NoteRepository;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;

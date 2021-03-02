@@ -1,9 +1,10 @@
-package com.example.a8androidpetukhova_diploma.Repository;
+package com.petukhova.flynotes.Repository;
 
 import androidx.annotation.Nullable;
-import com.example.a8androidpetukhova_diploma.DeadlineComparator;
-import com.example.a8androidpetukhova_diploma.ItemData;
+import com.petukhova.flynotes.DeadlineComparator;
+import com.petukhova.flynotes.ItemData;
 import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;

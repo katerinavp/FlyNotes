@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma.Key;
+package com.petukhova.flynotes.Key;
 
 public interface Keystore {
 

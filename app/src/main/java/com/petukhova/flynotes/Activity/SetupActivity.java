@@ -1,4 +1,4 @@
-package com.example.a8androidpetukhova_diploma.Activity;
+package com.petukhova.flynotes.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.example.a8androidpetukhova_diploma.App;
-import com.example.a8androidpetukhova_diploma.Key.Keystore;
+import com.petukhova.flynotes.App;
+import com.petukhova.flynotes.Key.Keystore;
 import com.example.a8androidpetukhova_diploma.R;
 
 
