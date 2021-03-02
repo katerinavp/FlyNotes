@@ -30,45 +30,59 @@
         app:layout_constraintStart_toStartOf="@+id/guidLeft"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_setup" />
 
-    <FrameLayout
-        android:id="@+id/imageBtn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave"
-        app:layout_constraintEnd_toEndOf="@+id/guidRight"
-        app:layout_constraintStart_toEndOf="@+id/editPin"
-        app:layout_constraintTop_toBottomOf="@+id/txtPin">
+    <ImageButton
+                android:id="@+id/imageBtnEyeBlind"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="fitCenter"
+                android:background="@color/colorBtnNumber"
+                app:layout_constraintBottom_toTopOf="@+id/btnSave"
+                app:layout_constraintEnd_toEndOf="@+id/guidRight"
+                app:layout_constraintStart_toEndOf="@+id/editPin"
+                app:layout_constraintTop_toBottomOf="@+id/txtPin"
+                android:visibility="visible"
+                app:srcCompat="@drawable/eye_blind" />
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/imageBtn"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/btnSave"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/guidRight"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/editPin"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/txtPin">-->
 
 
-        <ImageButton
-            android:id="@+id/imageBtnEyeOpen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:scaleType="fitCenter"
-            android:background="@color/colorBtnNumber"
-            app:layout_constraintBottom_toTopOf="@+id/btnSave"
-            app:layout_constraintEnd_toEndOf="@+id/guidRight"
-            app:layout_constraintStart_toEndOf="@+id/editPin"
-            app:layout_constraintTop_toBottomOf="@+id/txtPin"
-            android:visibility="gone"
-            app:srcCompat="@drawable/eye_open" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/imageBtnEyeOpen"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:background="@color/colorBtnNumber"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/btnSave"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/guidRight"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/editPin"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtPin"-->
+<!--            android:visibility="gone"-->
+<!--            app:srcCompat="@drawable/eye_open" />-->
 
-        <ImageButton
-            android:id="@+id/imageBtnEyeBlind"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/colorBtnNumber"
-            android:scaleType="fitCenter"
-            android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/btnSave"
-            app:layout_constraintEnd_toEndOf="@+id/guidRight"
-            app:layout_constraintStart_toEndOf="@+id/editPin"
-            app:layout_constraintTop_toBottomOf="@+id/txtPin"
-            app:srcCompat="@drawable/eye_blind" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/imageBtnEyeBlind"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:background="@color/colorBtnNumber"-->
+<!--            android:scaleType="fitCenter"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/btnSave"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/guidRight"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/editPin"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/txtPin"-->
+<!--            app:srcCompat="@drawable/eye_blind" />-->
 
-    </FrameLayout>
+<!--    </FrameLayout>-->
 
     <EditText
         android:id="@+id/editPin"

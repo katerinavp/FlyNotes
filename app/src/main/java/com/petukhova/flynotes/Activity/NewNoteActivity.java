@@ -95,7 +95,8 @@ public class NewNoteActivity extends AppCompatActivity {
                     saveNoteMethod();
                     return true;
                 } else {
-                    Toast.makeText(NewNoteActivity.this, "Заполните заметку", Toast.LENGTH_LONG).show();
+                    showToast(R.string.fillin_note);
+                    //Toast.makeText(NewNoteActivity.this, R.string.fillin_note, Toast.LENGTH_LONG).show();
                 }
             case android.R.id.home:
                 Intent intentFromNewNotesToNotes = new Intent(NewNoteActivity.this, NotesActivity.class);
@@ -120,7 +121,8 @@ public class NewNoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!(chBxDeadline.isChecked())) {
-                    Toast.makeText(NewNoteActivity.this, R.string.deadline_message, Toast.LENGTH_LONG).show();
+                    showToast(R.string.deadline_message);
+                   // Toast.makeText(NewNoteActivity.this, R.string.deadline_message, Toast.LENGTH_LONG).show();
                 } else {
                     callDatePicker();
                 }
@@ -187,6 +189,9 @@ public class NewNoteActivity extends AppCompatActivity {
         setResult(RESULT_OK);
         finish();
 
+    }
+    private void showToast(int msg){
+        Toast.makeText(NewNoteActivity.this, msg, Toast.LENGTH_LONG).show();
     }
 
 }

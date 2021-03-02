@@ -21,8 +21,9 @@ public class SetupActivity extends AppCompatActivity {
     private Keystore keystore = App.getKeystore();
     private static long back_pressed;
     private static EditText editPin;
-    ImageButton imageBtnEyeBlind;
-    ImageButton imageBtnEyeOpen;
+    private ImageButton imageBtnEyeBlind;
+    //private ImageButton imageBtnEyeOpen;
+    private boolean isKeyisHidden = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class SetupActivity extends AppCompatActivity {
     public void init() {
         editPin = findViewById(R.id.editPin);
         imageBtnEyeBlind = findViewById(R.id.imageBtnEyeBlind);
-        imageBtnEyeOpen = findViewById(R.id.imageBtnEyeOpen);
+        //imageBtnEyeOpen = findViewById(R.id.imageBtnEyeOpen);
 
     }
 
@@ -98,25 +99,37 @@ public class SetupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 editPin.setInputType(InputType.TYPE_CLASS_NUMBER);
-                editPin.setTransformationMethod(null);
-                imageBtnEyeBlind.setVisibility(View.GONE);
-                imageBtnEyeOpen.setVisibility(View.VISIBLE);
+                isShowEyeImage();
+//                editPin.setTransformationMethod(null);
+//                imageBtnEyeBlind.setVisibility(View.GONE);
+//                imageBtnEyeOpen.setVisibility(View.VISIBLE);
 
 
             }
         });
 
-        imageBtnEyeOpen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                imageBtnEyeBlind.setVisibility(View.VISIBLE);
-                imageBtnEyeOpen.setVisibility(View.GONE);
+//        imageBtnEyeOpen.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                editPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
+//                imageBtnEyeBlind.setVisibility(View.VISIBLE);
+//                imageBtnEyeOpen.setVisibility(View.GONE);
+//
+//            }
+//
+//        });
 
-            }
-
-        });
-
+    }
+    private void isShowEyeImage() {
+        if (isKeyisHidden) {
+            imageBtnEyeBlind.setImageResource(R.drawable.eye_open);
+            editPin.setTransformationMethod(null);
+            isKeyisHidden = false;
+        }else{
+            imageBtnEyeBlind.setImageResource(R.drawable.eye_blind);
+            editPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            isKeyisHidden = true;
+        }
     }
 
 }

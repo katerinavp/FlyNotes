@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:showAsAction="always"
-    tools:context="com.example.a8androidpetukhova_diploma.com.petukhova.a8androidpetukhova_diploma.Activity.NotesActivity"
+    tools:context="com.petukhova.flynotes.Activity.NotesActivity"
     android:background="@color/colorBack">
 
   <androidx.appcompat.widget.Toolbar

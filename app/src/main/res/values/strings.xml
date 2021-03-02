@@ -17,4 +17,5 @@
     <string name="question_delete_the_note">Вы уверены, что хотите удалить заметку?</string>
     <string name="delete">Удалить</string>
     <string name="cancel">Отмена</string>
+    <string name="fillin_note">Заполните заметку</string>
 </resources>

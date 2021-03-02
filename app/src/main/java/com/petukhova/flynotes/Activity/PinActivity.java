@@ -14,16 +14,16 @@ import com.example.a8androidpetukhova_diploma.R;
 public class PinActivity extends AppCompatActivity {
 
     private Keystore keystore = App.getKeystore();
-    StringBuilder numberPinBuilder = new StringBuilder();
-    String numberPinString;
-    View imageCircle1;
-    View imageCircle2;
-    View imageCircle3;
-    View imageCircle4;
-    View imageCircleYel1;
-    View imageCircleYel2;
-    View imageCircleYel3;
-    View imageCircleYel4;
+    private StringBuilder numberPinBuilder = new StringBuilder();
+    private String numberPinString;
+    private View imageCircle1;
+    private View imageCircle2;
+    private View imageCircle3;
+    private View imageCircle4;
+    private View imageCircleYel1;
+    private View imageCircleYel2;
+    private View imageCircleYel3;
+    private View imageCircleYel4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

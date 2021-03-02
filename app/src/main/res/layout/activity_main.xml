@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:showAsAction="always"
-    tools:context="com.example.a8androidpetukhova_diploma.com.petukhova.a8androidpetukhova_diploma.Activity.NewNoteActivity"
+    tools:context="com.petukhova.flynotes.Activity.NewNoteActivity"
     android:background="@color/colorBack">
 
 
@@ -102,7 +102,7 @@
         android:cropToPadding="false"
         android:scaleType="fitCenter"
         android:alpha="0.5"
-        android:src="@drawable/calendar"
+        android:src="@drawable/ic_calendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"
@@ -112,7 +112,7 @@
         android:id="@+id/Calendar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/calendar"
+        app:srcCompat="@drawable/ic_calendar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"

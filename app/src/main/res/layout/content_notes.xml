@@ -6,7 +6,7 @@
     android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.a8androidpetukhova_diploma.com.petukhova.a8androidpetukhova_diploma.Activity.NotesActivity"
+    tools:context="com.petukhova.flynotes.Activity.NotesActivity"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     app:layout_constraintTop_toBottomOf="@+id/toolbar_notes"
     tools:showIn="@layout/activity_notes"
