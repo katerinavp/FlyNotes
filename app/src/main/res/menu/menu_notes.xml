@@ -6,5 +6,6 @@
         android:title="@string/nameNewMote"
         android:orderInCategory="10"
         app:showAsAction="always"
-        android:icon="@drawable/setup"/>
+        android:icon="@drawable/setup"
+        />
 </menu>

@@ -13,17 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.petukhova.flynotes.App;
 import com.petukhova.flynotes.Key.Keystore;
-import com.example.a8androidpetukhova_diploma.R;
-
+import com.petukhova.flynotes.R;
 
 public class SetupActivity extends AppCompatActivity {
 
     private Keystore keystore = App.getKeystore();
     private static long back_pressed;
-    private static EditText editPin;
+    private EditText editPin;
     private ImageButton imageBtnEyeBlind;
-    //private ImageButton imageBtnEyeOpen;
-    private boolean isKeyisHidden = false;
+    private boolean isKeyisHidden = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +49,15 @@ public class SetupActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (keystore.hasPin()) {
-                    Intent intentSetupToNotes = new Intent(SetupActivity.this, NotesActivity.class);
-                    startActivity(intentSetupToNotes);
-                    return true;
-                }
-            default:
-                Toast.makeText(SetupActivity.this, "Установите пароль", Toast.LENGTH_LONG).show();
+        if (item.getItemId() == android.R.id.home) {
+            if (keystore.hasPin()) {
+                Intent intentSetupToNotes = new Intent(SetupActivity.this, NotesActivity.class);
+                startActivity(intentSetupToNotes);
+                finish();
+                return true;
+            }
         }
+        Toast.makeText(SetupActivity.this, "Установите пароль", Toast.LENGTH_LONG).show();
 
         return super.onOptionsItemSelected(item);
 
@@ -100,35 +97,19 @@ public class SetupActivity extends AppCompatActivity {
             public void onClick(View v) {
                 editPin.setInputType(InputType.TYPE_CLASS_NUMBER);
                 isShowEyeImage();
-//                editPin.setTransformationMethod(null);
-//                imageBtnEyeBlind.setVisibility(View.GONE);
-//                imageBtnEyeOpen.setVisibility(View.VISIBLE);
-
-
             }
         });
 
-//        imageBtnEyeOpen.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                editPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
-//                imageBtnEyeBlind.setVisibility(View.VISIBLE);
-//                imageBtnEyeOpen.setVisibility(View.GONE);
-//
-//            }
-//
-//        });
-
     }
     private void isShowEyeImage() {
-        if (isKeyisHidden) {
-            imageBtnEyeBlind.setImageResource(R.drawable.eye_open);
-            editPin.setTransformationMethod(null);
-            isKeyisHidden = false;
-        }else{
+        if (!isKeyisHidden) {
             imageBtnEyeBlind.setImageResource(R.drawable.eye_blind);
             editPin.setTransformationMethod(PasswordTransformationMethod.getInstance());
             isKeyisHidden = true;
+        }else{
+            imageBtnEyeBlind.setImageResource(R.drawable.eye_open);
+            editPin.setTransformationMethod(null);
+            isKeyisHidden = false;
         }
     }
 

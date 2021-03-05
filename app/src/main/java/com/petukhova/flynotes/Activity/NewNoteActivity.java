@@ -15,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.petukhova.flynotes.App;
 import com.petukhova.flynotes.ItemData;
-import com.example.a8androidpetukhova_diploma.R;
+
+import com.petukhova.flynotes.R;
 import com.petukhova.flynotes.Repository.NoteRepository;
 
 import java.text.SimpleDateFormat;
@@ -25,7 +26,7 @@ import java.util.Locale;
 
 public class NewNoteActivity extends AppCompatActivity {
 
-    private NoteRepository noteRepository = App.getNoteRepository();
+    private final NoteRepository noteRepository = App.getNoteRepository();
     private int noteIndex;
     EditText editTxtTitle;
     EditText editTxtNote;

@@ -14,23 +14,26 @@
       android:layout_height="?attr/actionBarSize"
       android:background="?attr/colorPrimary"
       android:elevation="4dp"
-      android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintHeight_percent="0.1"
-      app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+      app:titleTextColor="@color/colorBack"
+      />
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_new_notes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:layout_margin="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_plus" />
+  <com.google.android.material.floatingactionbutton.FloatingActionButton
+      android:id="@+id/add_new_notes"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="bottom|start"
+      android:layout_margin="8dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="16dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:srcCompat="@drawable/ic_plus" />
 
     <include layout="@layout/content_notes" />
 

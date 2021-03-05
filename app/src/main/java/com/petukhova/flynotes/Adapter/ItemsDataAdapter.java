@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.petukhova.flynotes.ItemData;
-import com.example.a8androidpetukhova_diploma.R;
+import com.petukhova.flynotes.R;
 
 import java.util.ArrayList;
 import java.util.List;

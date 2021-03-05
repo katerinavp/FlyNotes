@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBack"
     app:showAsAction="always"
-    tools:context="com.petukhova.flynotes.Activity.NewNoteActivity"
-    android:background="@color/colorBack">
+    tools:context="com.petukhova.flynotes.Activity.NewNoteActivity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -15,12 +15,12 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintBottom_toTopOf="@+id/editTxtTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="@color/colorBack" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidHorizontalBottom"
@@ -56,6 +56,8 @@
         android:layout_height="0dp"
         android:hint="@string/title"
         android:inputType="text"
+        android:paddingLeft="8dp"
+        android:theme="@style/Theme.AppCompat.Light"
         app:layout_constraintBottom_toTopOf="@+id/guidHorizontalTop"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
@@ -68,6 +70,8 @@
         android:hint="@string/note"
         android:inputType="textMultiLine"
         android:isScrollContainer="true"
+        android:padding="8dp"
+        android:theme="@style/Theme.AppCompat.Light"
         app:layout_constraintBottom_toTopOf="@id/guidHorizontalBottom"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toStartOf="@+id/guidHorizontalLeft"
@@ -77,6 +81,9 @@
         android:id="@+id/chBxDeadline"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:buttonTint="@color/colorCircleGrey"
+        android:contextClickable="true"
+        android:paddingLeft="8dp"
         android:text="@string/chBx_deadline"
         app:layout_constraintBottom_toTopOf="@+id/editTxtCalendar"
         app:layout_constraintEnd_toStartOf="@+id/guidHorizontalRight"
@@ -87,6 +94,8 @@
         android:id="@+id/editTxtCalendar"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:buttonTint="@color/colorCircleGrey"
         android:hint="@string/deadline_day"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,10 +108,11 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:adjustViewBounds="true"
+        android:alpha="0.5"
         android:cropToPadding="false"
         android:scaleType="fitCenter"
-        android:alpha="0.5"
         android:src="@drawable/ic_calendar"
+        android:theme="@style/Theme.AppCompat.Light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"
@@ -112,11 +122,13 @@
         android:id="@+id/Calendar"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        app:srcCompat="@drawable/ic_calendar"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/guidHorizontalRight"
         app:layout_constraintStart_toEndOf="@+id/editTxtCalendar"
-        app:layout_constraintTop_toBottomOf="@id/chBxDeadline" />
+        app:layout_constraintTop_toBottomOf="@id/chBxDeadline"
+        app:srcCompat="@drawable/ic_calendar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

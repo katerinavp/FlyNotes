@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a8androidpetukhova_diploma">
+    package="com.petukhova.flynotes">
 
     <application
         android:name="com.petukhova.flynotes.App"
@@ -17,7 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name="com.petukhova.flynotes.Activity.NewNoteActivity" />
         <activity android:name="com.petukhova.flynotes.Activity.NotesActivity" />
         <activity android:name="com.petukhova.flynotes.Activity.SetupActivity" />

@@ -4,114 +4,99 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import com.petukhova.flynotes.App;
 import com.petukhova.flynotes.Key.Keystore;
-import com.example.a8androidpetukhova_diploma.R;
+import com.petukhova.flynotes.R;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PinActivity extends AppCompatActivity {
 
-    private Keystore keystore = App.getKeystore();
-    private StringBuilder numberPinBuilder = new StringBuilder();
-    private String numberPinString;
-    private View imageCircle1;
-    private View imageCircle2;
-    private View imageCircle3;
-    private View imageCircle4;
-    private View imageCircleYel1;
-    private View imageCircleYel2;
-    private View imageCircleYel3;
-    private View imageCircleYel4;
+    private final Keystore keystore = App.getKeystore();
+    private final StringBuilder numberPinBuilder = new StringBuilder();
+    private final List<ImageView> circleButtons = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkHasPin();
+
         setContentView(R.layout.activity_pin);
-        Toolbar toolbar = findViewById(R.id.toolbar_pin);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Заметки");
-        }
-        setOnClickAddPassword();
+
+        init();
         deleteNumber();
         setOnClickButton();
     }
 
-    public void setOnClickAddPassword() {
+    public void checkHasPin() {
         if (!keystore.hasPin()) {
             Intent intentFromPinToSetup = new Intent(PinActivity.this, SetupActivity.class);
             startActivity(intentFromPinToSetup);
+            finish(); // Завершаем текущую активити пользователь не мог больше сюда попасть по кнопке back
         }
     }
 
-    private View.OnClickListener numberButtonListener = new View.OnClickListener() { //создаем переменную слушателя для кнопок с цифрами и точки
+    private void init() {
+        Toolbar toolbar = findViewById(R.id.toolbar_pin);
+        setSupportActionBar(toolbar);
+
+        ImageView imageCircle1 = findViewById(R.id.imageCircle1);
+        ImageView imageCircle2 = findViewById(R.id.imageCircle2);
+        ImageView imageCircle3 = findViewById(R.id.imageCircle3);
+        ImageView imageCircle4 = findViewById(R.id.imageCircle4);
+
+        circleButtons.add(imageCircle1);
+        circleButtons.add(imageCircle2);
+        circleButtons.add(imageCircle3);
+        circleButtons.add(imageCircle4);
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(R.string.Notes);
+        }
+    }
+
+
+    private final View.OnClickListener numberButtonListener = new View.OnClickListener() { //создаем переменную слушателя для кнопок с цифрами и точки
         @Override
         public void onClick(View v) {
-            imageCircle1 = findViewById(R.id.imageCircle1);
-            imageCircle2 = findViewById(R.id.imageCircle2);
-            imageCircle3 = findViewById(R.id.imageCircle3);
-            imageCircle4 = findViewById(R.id.imageCircle4);
-            imageCircleYel1 = findViewById(R.id.imageCircleYel1);
-            imageCircleYel2 = findViewById(R.id.imageCircleYel2);
-            imageCircleYel3 = findViewById(R.id.imageCircleYel3);
-            imageCircleYel4 = findViewById(R.id.imageCircleYel4);
-
             Button buttonNumber = (Button) v;
             String numberPin = buttonNumber.getText().toString();
             numberPinBuilder.append(numberPin);
-            numberPinString = numberPinBuilder.toString();
+            String numberPinString = numberPinBuilder.toString();
 
-            switch (numberPinBuilder.length()) {
-                case (1):
-                    imageCircle1.setVisibility(View.INVISIBLE);
-                    imageCircleYel1.setVisibility(View.VISIBLE);
-                    imageCircle2.setVisibility(View.VISIBLE);
-                    imageCircleYel2.setVisibility(View.INVISIBLE);
-                    imageCircle3.setVisibility(View.VISIBLE);
-                    imageCircleYel3.setVisibility(View.INVISIBLE);
-                    imageCircle4.setVisibility(View.VISIBLE);
-                    imageCircleYel4.setVisibility(View.INVISIBLE);
-                    break;
-                case (2):
-                    imageCircle1.setVisibility(View.INVISIBLE);
-                    imageCircleYel1.setVisibility(View.VISIBLE);
-                    imageCircle2.setVisibility(View.INVISIBLE);
-                    imageCircleYel2.setVisibility(View.VISIBLE);
-                    imageCircle3.setVisibility(View.VISIBLE);
-                    imageCircleYel3.setVisibility(View.INVISIBLE);
-                    imageCircle4.setVisibility(View.VISIBLE);
-                    imageCircleYel4.setVisibility(View.INVISIBLE);
-                    break;
-                case (3):
-                    imageCircle1.setVisibility(View.INVISIBLE);
-                    imageCircleYel1.setVisibility(View.VISIBLE);
-                    imageCircle2.setVisibility(View.INVISIBLE);
-                    imageCircleYel2.setVisibility(View.VISIBLE);
-                    imageCircle3.setVisibility(View.INVISIBLE);
-                    imageCircleYel3.setVisibility(View.VISIBLE);
-                    imageCircle4.setVisibility(View.VISIBLE);
-                    imageCircleYel4.setVisibility(View.INVISIBLE);
-                    break;
-                case (4):
-                    imageCircle1.setVisibility(View.INVISIBLE);
-                    imageCircleYel1.setVisibility(View.VISIBLE);
-                    imageCircle2.setVisibility(View.INVISIBLE);
-                    imageCircleYel2.setVisibility(View.VISIBLE);
-                    imageCircle3.setVisibility(View.INVISIBLE);
-                    imageCircleYel3.setVisibility(View.VISIBLE);
-                    imageCircle4.setVisibility(View.INVISIBLE);
-                    imageCircleYel4.setVisibility(View.VISIBLE);
-                    break;
-            }
-            if (numberPinString.length() != 4) {
-                setOnClickButton();
-            } else {
+            refreshCircleIcons();
+
+            if (numberPinString.length() > 3) {
                 checkPin(numberPinString);
             }
         }
     };
+
+    // обновить состояние кнопок
+    private void refreshCircleIcons() {
+        for (int i = 0; i <= circleButtons.size() - 1; i++) {
+
+            // Чекам нажата ли кнопка. Определяем из размера numberPinBuilder
+            boolean isChecked = numberPinBuilder.length() - 1 >= i;
+            ImageView imageView = circleButtons.get(i);
+
+            int icon;
+            if (isChecked) {
+                icon = R.drawable.circle_yellow;
+            } else {
+                icon = R.drawable.circle;
+            }
+
+            // Переключаем у картинки фон
+            imageView.setImageDrawable(ContextCompat.getDrawable(this, icon));
+        }
+    }
 
     private void setOnClickButton() {
         findViewById(R.id.btn0).setOnClickListener(numberButtonListener);
@@ -131,63 +116,11 @@ public class PinActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (numberPinBuilder.length() == 0) {
-                    Toast.makeText(PinActivity.this, "Введите пароль", Toast.LENGTH_LONG).show();
+                    Toast.makeText(PinActivity.this, R.string.enter_your_password, Toast.LENGTH_LONG).show();
                     setOnClickButton();
                 } else {
                     numberPinBuilder.setLength(numberPinBuilder.length() - 1);
-                    switch (numberPinBuilder.length()) {
-                        case (0):
-                            imageCircle1.setVisibility(View.VISIBLE);
-                            imageCircleYel1.setVisibility(View.INVISIBLE);
-                            imageCircle2.setVisibility(View.VISIBLE);
-                            imageCircleYel2.setVisibility(View.INVISIBLE);
-                            imageCircle3.setVisibility(View.VISIBLE);
-                            imageCircleYel3.setVisibility(View.INVISIBLE);
-                            imageCircle4.setVisibility(View.VISIBLE);
-                            imageCircleYel4.setVisibility(View.INVISIBLE);
-                            break;
-                        case (1):
-                            imageCircle1.setVisibility(View.INVISIBLE);
-                            imageCircleYel1.setVisibility(View.VISIBLE);
-                            imageCircle2.setVisibility(View.VISIBLE);
-                            imageCircleYel2.setVisibility(View.INVISIBLE);
-                            imageCircle3.setVisibility(View.VISIBLE);
-                            imageCircleYel3.setVisibility(View.INVISIBLE);
-                            imageCircle4.setVisibility(View.VISIBLE);
-                            imageCircleYel4.setVisibility(View.INVISIBLE);
-                            break;
-                        case (2):
-                            imageCircle1.setVisibility(View.INVISIBLE);
-                            imageCircleYel1.setVisibility(View.VISIBLE);
-                            imageCircle2.setVisibility(View.INVISIBLE);
-                            imageCircleYel2.setVisibility(View.VISIBLE);
-                            imageCircle3.setVisibility(View.VISIBLE);
-                            imageCircleYel3.setVisibility(View.INVISIBLE);
-                            imageCircle4.setVisibility(View.VISIBLE);
-                            imageCircleYel4.setVisibility(View.INVISIBLE);
-                            break;
-                        case (3):
-                            imageCircle1.setVisibility(View.INVISIBLE);
-                            imageCircleYel1.setVisibility(View.VISIBLE);
-                            imageCircle2.setVisibility(View.INVISIBLE);
-                            imageCircleYel2.setVisibility(View.VISIBLE);
-                            imageCircle3.setVisibility(View.INVISIBLE);
-                            imageCircleYel3.setVisibility(View.VISIBLE);
-                            imageCircle4.setVisibility(View.VISIBLE);
-                            imageCircleYel4.setVisibility(View.INVISIBLE);
-                            break;
-                        case (4):
-                            imageCircle1.setVisibility(View.INVISIBLE);
-                            imageCircleYel1.setVisibility(View.VISIBLE);
-                            imageCircle2.setVisibility(View.INVISIBLE);
-                            imageCircleYel2.setVisibility(View.VISIBLE);
-                            imageCircle3.setVisibility(View.INVISIBLE);
-                            imageCircleYel3.setVisibility(View.VISIBLE);
-                            imageCircle4.setVisibility(View.INVISIBLE);
-                            imageCircleYel4.setVisibility(View.VISIBLE);
-                            break;
-                    }
-                    setOnClickButton();
+                    refreshCircleIcons();
                 }
             }
         });
@@ -197,19 +130,12 @@ public class PinActivity extends AppCompatActivity {
         if (!keystore.checkPin(numberPinString)) {
             Toast.makeText(PinActivity.this, getString(R.string.password_is_incorrect), Toast.LENGTH_LONG).show();
             numberPinBuilder.setLength(0); // сброс StringBuilder
-            imageCircle1.setVisibility(View.VISIBLE);
-            imageCircleYel1.setVisibility(View.INVISIBLE);
-            imageCircle2.setVisibility(View.VISIBLE);
-            imageCircleYel2.setVisibility(View.INVISIBLE);
-            imageCircle3.setVisibility(View.VISIBLE);
-            imageCircleYel3.setVisibility(View.INVISIBLE);
-            imageCircle4.setVisibility(View.VISIBLE);
-            imageCircleYel4.setVisibility(View.INVISIBLE);
-            setOnClickButton();
+            refreshCircleIcons();
         } else {
             Toast.makeText(PinActivity.this, R.string.password_is_correct, Toast.LENGTH_LONG).show();
             Intent intentPinToNotes = new Intent(PinActivity.this, NotesActivity.class);
             startActivity(intentPinToNotes);
+            finish();
         }
     }
 }

@@ -15,6 +15,7 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:titleTextColor="@color/colorBack"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,14 +41,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:text="Введите пин:"
+        android:text="@string/enter_pin"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@id/guidTop"
         app:layout_constraintEnd_toEndOf="@+id/guidRight"
         app:layout_constraintStart_toStartOf="@+id/guidLeft"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_pin" />
 
-    <View
+    <ImageView
         android:id="@+id/imageCircle1"
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -59,19 +60,7 @@
         app:srcCompat="@drawable/circle"
         android:visibility="visible"/>
 
-    <View
-        android:id="@+id/imageCircleYel1"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/circle_yellow"
-        app:layout_constraintBottom_toTopOf="@id/guidBottom"
-        app:layout_constraintEnd_toStartOf="@+id/imageCircle2"
-        app:layout_constraintStart_toStartOf="@+id/guidLeft"
-        app:layout_constraintTop_toBottomOf="@+id/guidTop"
-        app:srcCompat="@drawable/circle_yellow"
-        android:visibility="invisible"/>
-
-       <View
+       <ImageView
         android:id="@+id/imageCircle2"
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -82,18 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/guidTop"
         android:visibility="visible"/>
 
-    <View
-        android:id="@+id/imageCircleYel2"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/circle_yellow"
-        app:layout_constraintBottom_toTopOf="@id/guidBottom"
-        app:layout_constraintEnd_toStartOf="@+id/imageCircle3"
-        app:layout_constraintStart_toEndOf="@+id/imageCircle1"
-        app:layout_constraintTop_toBottomOf="@+id/guidTop"
-        android:visibility="invisible"/>
-
-    <View
+    <ImageView
         android:id="@+id/imageCircle3"
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -104,19 +82,8 @@
         app:layout_constraintTop_toBottomOf="@+id/guidTop"
         app:srcCompat="@drawable/circle"
         android:visibility="visible"/>
-    <View
-        android:id="@+id/imageCircleYel3"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/circle_yellow"
-        app:layout_constraintBottom_toTopOf="@id/guidBottom"
-        app:layout_constraintEnd_toStartOf="@+id/imageCircle4"
-        app:layout_constraintStart_toEndOf="@+id/imageCircle2"
-        app:layout_constraintTop_toBottomOf="@+id/guidTop"
-        app:srcCompat="@drawable/circle"
-        android:visibility="invisible"/>
 
-    <View
+    <ImageView
         android:id="@+id/imageCircle4"
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -127,17 +94,6 @@
         app:layout_constraintTop_toBottomOf="@+id/guidTop"
         app:srcCompat="@drawable/circle"
         android:visibility="visible"/>
-    <View
-        android:id="@+id/imageCircleYel4"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:background="@drawable/circle_yellow"
-        app:layout_constraintBottom_toTopOf="@id/guidBottom"
-        app:layout_constraintEnd_toEndOf="@+id/guidRight"
-        app:layout_constraintStart_toEndOf="@+id/imageCircle3"
-        app:layout_constraintTop_toBottomOf="@+id/guidTop"
-        app:srcCompat="@drawable/circle"
-        android:visibility="invisible"/>
 
     <LinearLayout
         android:id="@+id/btnNumber"
@@ -271,7 +227,9 @@
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_weight="1"
+                android:theme="@style/Theme.AppCompat.Light"
                 android:background="@color/colorBtnNumber"
+
                 app:srcCompat="?attr/homeAsUpIndicator" />
 
         </LinearLayout>

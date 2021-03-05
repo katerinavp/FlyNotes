@@ -12,7 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.petukhova.flynotes.Adapter.ItemsDataAdapter;
 import com.petukhova.flynotes.App;
 import com.petukhova.flynotes.ItemData;
-import com.example.a8androidpetukhova_diploma.R;
+
+import com.petukhova.flynotes.R;
 import com.petukhova.flynotes.Repository.NoteRepository;
 
 import java.util.List;
@@ -30,10 +31,6 @@ public class NotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        Toolbar toolbar = findViewById(R.id.toolbar_notes);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("Заметки");
-
             initNotes();
             setOnClickAddNewNotes();
             correctNote();
@@ -42,6 +39,9 @@ public class NotesActivity extends AppCompatActivity {
     }
 
     public void initNotes() {
+        Toolbar toolbar = findViewById(R.id.toolbar_notes);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.Notes);
         list = findViewById(R.id.list);
         adapter = new ItemsDataAdapter(this, null);
         list.setAdapter(adapter);
