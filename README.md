@@ -19,6 +19,5 @@
 
 ### Дизайн
 
-<img src="https://github.com/katerinavp/FlyNotes/blob/master/images/1.jpg" width="200" height="400"> <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/3.jpg" width="200" height="400"> <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/4.jpg" width="200" height="400"> <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/5.jpg" width="200" height="400"> 
-<img src="https://github.com/katerinavp/FlyNotes/blob/master/images/6.jpg" width="200" height="400">
-<img src="https://github.com/katerinavp/FlyNotes/blob/master/images/7_Notes.jpg" width="200" height="400">
+<img src="https://github.com/katerinavp/FlyNotes/blob/master/images/Setting.jpg" width="200" height="400"> <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/Pin_code.jpg" width="200" height="400"> <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/New_note.jpg" width="200" height="400"> <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/Deadline.jpg" width="200" height="400"> 
+<img src="https://github.com/katerinavp/FlyNotes/blob/master/images/Notes.jpg" width="200" height="400">
