@@ -4,11 +4,11 @@ android {
     compileSdkVersion targetVersion
     buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "com.example.a8androidpetukhova_diploma"
+        applicationId "com.petukhova.flynotes"
         minSdkVersion 23
         targetSdkVersion targetVersion
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
