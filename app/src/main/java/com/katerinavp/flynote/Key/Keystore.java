@@ -1,4 +1,4 @@
-package com.petukhova.flynotes.Key;
+package com.katerinavp.flynote.Key;
 
 public interface Keystore {
 

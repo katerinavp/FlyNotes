@@ -1,8 +1,8 @@
-package com.petukhova.flynotes.Repository;
+package com.katerinavp.flynote.Repository;
 
 import androidx.annotation.Nullable;
-import com.petukhova.flynotes.DeadlineComparator;
-import com.petukhova.flynotes.ItemData;
+import com.katerinavp.flynote.DeadlineComparator;
+import com.katerinavp.flynote.ItemData;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;

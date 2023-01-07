@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBack"
     app:showAsAction="always"
-    tools:context="com.petukhova.flynotes.Activity.NewNoteActivity">
+    tools:context="com.katerinavp.flynote.Activity.NewNoteActivity">
 
 
     <androidx.appcompat.widget.Toolbar

@@ -1,4 +1,4 @@
-package com.petukhova.flynotes.Activity;
+package com.katerinavp.flynote.Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -13,11 +13,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.petukhova.flynotes.App;
-import com.petukhova.flynotes.ItemData;
+import com.katerinavp.flynote.App;
+import com.katerinavp.flynote.ItemData;
 
-import com.petukhova.flynotes.R;
-import com.petukhova.flynotes.Repository.NoteRepository;
+import com.katerinavp.flynote.R;
+import com.katerinavp.flynote.Repository.NoteRepository;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;

@@ -1,4 +1,4 @@
-package com.petukhova.flynotes.Activity;
+package com.katerinavp.flynote.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import com.petukhova.flynotes.App;
-import com.petukhova.flynotes.Key.Keystore;
-import com.petukhova.flynotes.R;
+import com.katerinavp.flynote.App;
+import com.katerinavp.flynote.Key.Keystore;
+import com.katerinavp.flynote.R;
 import java.util.ArrayList;
 import java.util.List;
 

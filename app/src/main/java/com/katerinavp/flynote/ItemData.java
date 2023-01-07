@@ -1,4 +1,4 @@
-package com.petukhova.flynotes;
+package com.katerinavp.flynote;
 
 public class ItemData {
 

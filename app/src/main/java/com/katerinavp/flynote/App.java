@@ -1,11 +1,11 @@
-package com.petukhova.flynotes;
+package com.katerinavp.flynote;
 
 import android.app.Application;
 import android.content.Context;
-import com.petukhova.flynotes.Key.Keystore;
-import com.petukhova.flynotes.Key.SimpleKeystore;
-import com.petukhova.flynotes.Repository.FileNoteRepository;
-import com.petukhova.flynotes.Repository.NoteRepository;
+import com.katerinavp.flynote.Key.Keystore;
+import com.katerinavp.flynote.Key.SimpleKeystore;
+import com.katerinavp.flynote.Repository.FileNoteRepository;
+import com.katerinavp.flynote.Repository.NoteRepository;
 
 import java.io.File;
 

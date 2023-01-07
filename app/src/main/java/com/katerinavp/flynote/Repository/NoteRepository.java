@@ -1,7 +1,7 @@
-package com.petukhova.flynotes.Repository;
+package com.katerinavp.flynote.Repository;
 
 import androidx.annotation.Nullable;
-import com.petukhova.flynotes.ItemData;
+import com.katerinavp.flynote.ItemData;
 import java.util.List;
 
 public interface NoteRepository {

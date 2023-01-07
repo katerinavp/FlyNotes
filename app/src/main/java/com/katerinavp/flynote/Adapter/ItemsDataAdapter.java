@@ -1,4 +1,4 @@
-package com.petukhova.flynotes.Adapter;
+package com.katerinavp.flynote.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.petukhova.flynotes.ItemData;
-import com.petukhova.flynotes.R;
+import com.katerinavp.flynote.ItemData;
+import com.katerinavp.flynote.R;
 
 import java.util.ArrayList;
 import java.util.List;
