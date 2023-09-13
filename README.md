@@ -3,7 +3,8 @@
 
 ---
 <img src="https://github.com/katerinavp/FlyNotes/blob/master/images/post-it.png" width="100" height="100">   
-### Ссылка на Google Play
+
+### Ссылка на Google Play:
 https://play.google.com/store/apps/details?id=com.petukhova.flynotes
 
 ### Используемые инструменты и технологии:  
